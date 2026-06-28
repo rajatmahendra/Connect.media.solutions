@@ -29,6 +29,7 @@
             color: var(--text-pure);
             line-height: 1.6;
             overflow-x: hidden;
+            perspective: 1000px; /* Required to make the 3D card flips look deep and cinematic */
         }
 
         header {
@@ -302,26 +303,6 @@
             .hero h1 { font-size: 2.5rem; }
             nav { display: none; }
         }
-
-        /* ── RANDOM SCROLL REVEAL ENGINE BASE STYLES ── */
-        .reveal-item {
-            opacity: 0;
-            transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), 
-                        transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: transform, opacity;
-        }
-
-        /* The styles below represent the starting points before entering the screen */
-        .reveal-slide-up { transform: translateY(50px); }
-        .reveal-slide-left { transform: translateX(-50px); }
-        .reveal-slide-right { transform: translateX(50px); }
-        .reveal-scale-zoom { transform: scale(0.92); }
-
-        /* Activating target animation properties when visible */
-        .reveal-item.active {
-            opacity: 1;
-            transform: translateY(0) translateX(0) scale(1);
-        }
     </style>
 </head>
 <body>
@@ -488,3 +469,113 @@
                     <div style="margin-bottom: 1.5rem;">
                         <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">LED Wall Requirements & Screen Size *</label>
                         <textarea id="visitorRequirements" rows="4" required placeholder="Example: Need a showroom display size 10x8 feet..." style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none; resize: vertical;"></textarea>
+                    </div>
+                    
+                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, #25D366, #1ebd59); color: white; border: none; padding: 1rem; border-radius: 6px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+                        Submit via WhatsApp Chat
+                    </button>
+                </form>
+            </div>
+
+            <script>
+                function sendToWhatsApp(event) {
+                    event.preventDefault();
+                    const name = document.getElementById('visitorName').value;
+                    const phone = document.getElementById('visitorPhone').value;
+                    const requirements = document.getElementById('visitorRequirements').value;
+                    
+                    const message = "Hello Connect Media Solutions!\n\nI have a new LED project requirement:\n" +
+                                    "━ Name: " + name + "\n" +
+                                    "━ Phone: " + phone + "\n" +
+                                    "━ Requirements: " + requirements;
+                    
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappURL = "https://wa.me/918299883006?text=" + encodedMessage;
+                    window.open(whatsappURL, '_blank');
+                }
+            </script>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Direct Call Desk</h4>
+                    <p style="color: var(--accent-cyan); font-size: 1.4rem; font-weight: 700;">+91 8299883006</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Corporate Office</h4>
+                    <p style="font-size: 1.05rem; color: #e2e8f0;">CK 15/13, Sudiya, Varanasi,<br>Uttar Pradesh — 221001</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Operational Area</h4>
+                    <p style="font-size: 1.05rem; color: #e2e8f0;">Central hub in Varanasi.<br>Freight networks active India-wide.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <a href="https://wa.me/918299883006" target="_blank" style="display: flex; align-items: center; gap: 10px; background: #25D366; color: #ffffff; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
+                    WhatsApp Chat
+                </a>
+                <a href="https://www.instagram.com/connect.media.solutions?igsh=bzc2czVtcDZyZDVz" target="_blank" style="display: flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #ffffff; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(220, 39, 67, 0.4);">
+                    Instagram Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="future-banner">
+        <h2>The Future Is Bright</h2>
+        <p style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
+        <a href="tel:+918299883006" class="btn" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Target all layout blocks, text components, and image grids
+            const elementsToAnimate = document.querySelectorAll('.hero-content, section .section-title, section h2, section p, .card, .split-layout img, .contact-box, .row-banner, .list-style li');
+            
+            // Modern, responsive 3D inline viewport transitions (Keeps animation safe inside mobile frames)
+            const dynamicStyles = [
+                { init: "translateY(40px) scale(0.96)", active: "translateY(0) scale(1)" }, // Smooth Lift Zoom
+                { init: "rotateX(-12deg) translateY(30px)", active: "rotateX(0deg) translateY(0)" }, // 3D Card Flip Up
+                { init: "rotateY(6deg) scale(0.98)", active: "rotateY(0deg) scale(1)" }, // 3D Perspective Twist
+                { init: "scale(0.92) opacity(0)", active: "scale(1) opacity(1)" } // Pure High-Tech Focal Zoom
+            ];
+
+            elementsToAnimate.forEach((element) => {
+                element.style.opacity = "0";
+                element.style.transition = "opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1)";
+                element.style.willChange = "transform, opacity";
+                
+                // Randomly select one of the matrix styles for this specific element
+                const selectedStyle = dynamicStyles[Math.floor(Math.random() * dynamicStyles.length)];
+                element.style.transform = selectedStyle.init;
+                
+                // Store the active values directly inside the element attributes
+                element.setAttribute('data-reveal-active', selectedStyle.active);
+            });
+
+            // Intersection Observer configuration
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeTransform = entry.target.getAttribute('data-reveal-active');
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = activeTransform;
+                        scrollObserver.unobserve(entry.target); // Runs cleanly once per scroll session
+                    }
+                });
+            }, {
+                threshold: 0.05, // Element triggers reveal when 5% visible on screen
+                rootMargin: "0px 0px -30px 0px"
+            });
+
+            // Bind tracking observer to elements
+            elementsToAnimate.forEach(target => scrollObserver.observe(target));
+        });
+    </script>
+
+</body>
+</html>
