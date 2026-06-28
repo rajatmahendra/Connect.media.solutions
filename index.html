@@ -29,7 +29,6 @@
             color: var(--text-pure);
             line-height: 1.6;
             overflow-x: hidden;
-            perspective: 1000px; /* Forces 3D perspective depth tracking on all sub-elements */
         }
 
         header {
@@ -136,20 +135,13 @@
             margin: 0 auto;
         }
 
-        .header-group {
-            text-align: center;
-            margin-bottom: 3.5rem;
-            position: relative;
-            display: block;
-            width: 100%;
-        }
-
         .section-title {
+            text-align: center;
             font-size: 2.5rem;
             font-weight: 800;
+            margin-bottom: 3.5rem;
             text-transform: uppercase;
             color: var(--accent-pink);
-            margin-bottom: 1rem;
         }
 
         .section-title::after {
@@ -162,17 +154,25 @@
             border-radius: 2px;
         }
 
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
+        }
+
+        /* Responsive Sub-Grids for Landscape Video Layouts */
+        .video-landscape-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        /* Specially Optimized Grid for Vertical 9:16 Shorts Containers */
+        .video-shorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .split-layout {
@@ -214,6 +214,37 @@
             border-radius: 6px;
             margin-bottom: 1.2rem;
             border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Immersive responsive frames preventing embed clipping */
+        .embed-container-landscape {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 1.2rem;
+        }
+
+        .embed-container-shorts {
+            position: relative;
+            padding-bottom: 177.78%; /* Exact 9:16 Vertical Shorts Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 1.2rem;
+        }
+
+        .embed-container-landscape iframe,
+        .embed-container-shorts iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         .card h3 {
@@ -315,6 +346,7 @@
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
+            .video-landscape-grid { grid-template-columns: 1fr; }
             nav { display: none; }
         }
     </style>
@@ -331,6 +363,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#technology">Technology</a></li>
                     <li><a href="#applications">Applications</a></li>
+                    <li><a href="#media-hub">Showcase</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -375,10 +408,8 @@
         </div>
 
         <div style="margin-top: 5rem; text-align: center;">
-            <div class="header-group">
-                <h2 class="section-title">Our Nationwide Infrastructure</h2>
-                <p class="section-subtitle">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
-            </div>
+            <h2 class="section-title">Our Nationwide Infrastructure</h2>
+            <p style="color: var(--text-muted); max-width: 800px; margin: -2rem auto 2.5rem;">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
             <div class="grid-3" style="text-align: left; margin-bottom: 3rem;">
                 <div class="card"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
                 <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
@@ -390,9 +421,7 @@
 
     <div class="tech-wrapper" id="technology">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <div class="header-group">
-                <h2 class="section-title">Precision Hardware Specifications</h2>
-            </div>
+            <h2 class="section-title">Precision Hardware Specifications</h2>
             <div class="grid-3">
                 <div class="card cyan-accent">
                     <h3>High Pixel Density</h3>
@@ -411,10 +440,8 @@
     </div>
 
     <section id="applications">
-        <div class="header-group">
-            <h2 class="section-title">Versatile Architecture Use</h2>
-            <p class="section-subtitle">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
-        </div>
+        <h2 class="section-title">Versatile Architecture Use</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
         
         <div class="grid-3">
             <div class="card">
@@ -431,6 +458,82 @@
                 <img src="pic8.jpg" alt="Large Area Arena Panel Display">
                 <h3>Public Spaces</h3>
                 <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="media-hub" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem;">
+        <h2 class="section-title">On-Site Project Deployments</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
+        
+        <div class="video-landscape-grid">
+            <div class="card cyan-accent">
+                <div class="embed-container-landscape">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+                <h3>Premium Corporate Boardroom</h3>
+                <p style="color: var(--text-muted);">Fine pixel pitch layout calibrated carefully to achieve crisp contrast delivery for close-range execution hubs.</p>
+            </div>
+
+            <div class="card cyan-accent">
+                <div class="embed-container-landscape">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+                <h3>Executive Command Center</h3>
+                <p style="color: var(--text-muted);">Robust screen configurations engineered for critical multi-window metrics tracking and 24/7 terminal resilience.</p>
+            </div>
+
+            <div class="card cyan-accent">
+                <div class="embed-container-landscape">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+                <h3>High-Impact Commercial Window</h3>
+                <p style="color: var(--text-muted);">Vivid exterior panel layout rendering premium high-contrast product branding across elite retail corridors.</p>
+            </div>
+
+            <div class="card cyan-accent">
+                <div class="embed-container-landscape">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+                <h3>Auditorium Presentation Screen</h3>
+                <p style="color: var(--text-muted);">Large-scale physical setup engineered to deliver high-brightness clarity to far-reaching stadium architectures.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Live Installation Reels</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Quick smartphone snapshots of our hardware structural metrics and panel alignment checks.</p>
+
+        <div class="video-shorts-grid">
+            <div class="card">
+                <div class="embed-container-shorts">
+                    <iframe src="https://www.youtube.com/embed/KvQ8KYIHzuU" title="p3 outdoor high quality" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">P3 Outdoor Premium Wall</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">High-quality, sunlight-readable external modular setup testing sequence.</p>
+            </div>
+
+            <div class="card">
+                <div class="embed-container-shorts">
+                    <iframe src="https://www.youtube.com/embed/cresWg6C1Uw" title="p4 outdoor high quality" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">P4 Heavy Duty Outdoor Display</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Weatherproof hardware configuration tracking color consistency live.</p>
+            </div>
+
+            <div class="card">
+                <div class="embed-container-shorts">
+                    <iframe src="https://www.youtube.com/embed/LGibFl4Ug3I" title="p4 outdoor high quality installation at Duchie Duchie varanasi showroom" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Duchie Duchie Showroom (Varanasi)</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Complete custom P4 outdoor luxury storefront screen deployment setup.</p>
+            </div>
+
+            <div class="card">
+                <div class="embed-container-shorts">
+                    <iframe src="https://www.youtube.com/embed/wg4ipEqjVBI" title="narayan das sarraf varanasi p2.0 outdoor installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Narayan Das Sarraf (Varanasi)</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">High-density structural P2.0 outdoor commercial display integration.</p>
             </div>
         </div>
     </section>
@@ -460,7 +563,7 @@
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
             <div>
-                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
+                <img pic="pic10.jpg" src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
             </div>
         </div>
     </section>
@@ -550,61 +653,6 @@
     <footer>
         <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
     </footer>
-
-    <script>
-        // Use a secure check to make sure the script runs after everything is built
-        window.addEventListener('DOMContentLoaded', function() {
-            
-            // Auto-targets your cards, columns, sections, and structural banners instantly
-            const elements = document.querySelectorAll('.card, .row-banner, .contact-box, .split-layout > div, .header-group');
-            
-            // High-impact 3D matrix configurations
-            const mechanicalStyles = [
-                { init: "matrix3d(0.95, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 1, 0, 0, 80, 0, 1)", active: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)" }, // Deep 3D Lift Pop
-                { init: "rotateX(-25deg) translateY(60px)", active: "rotateX(0deg) translateY(0)" }, // Premium 3D Flipping block
-                { init: "scale(0.88) filter(blur(5px))", active: "scale(1) filter(blur(0px))" } // Smooth Focal Zoom In
-            ];
-
-            // Setup a safety mechanism: If browser drops animation tracking, force show everything automatically
-            const safetyTimeout = setTimeout(() => {
-                elements.forEach(el => {
-                    el.style.opacity = "1";
-                    el.style.transform = "none";
-                    el.style.filter = "none";
-                });
-                console.log("Animation safety override triggered.");
-            }, 3500);
-
-            elements.forEach((el) => {
-                el.style.opacity = "0";
-                el.style.transition = "opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease";
-                el.style.willChange = "transform, opacity, filter";
-                
-                // Randomly bind animation style matrix properties
-                const randomStyle = mechanicalStyles[Math.floor(Math.random() * mechanicalStyles.length)];
-                el.style.transform = randomStyle.init;
-                el.setAttribute('data-target-reveal', randomStyle.active);
-            });
-
-            // Active structural observer tracking
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const targetTransform = entry.target.getAttribute('data-target-reveal');
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = targetTransform;
-                        entry.target.style.filter = "none";
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, {
-                threshold: 0.02, // Triggers as soon as the element skims 2% into view
-                rootMargin: "0px 0px -20px 0px"
-            });
-
-            elements.forEach(target => observer.observe(target));
-        });
-    </script>
 
 </body>
 </html>
