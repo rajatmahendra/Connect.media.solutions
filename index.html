@@ -3,532 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect Media Solutions | Next-Gen LED Video Walls</title>
-    <style>
-        :root {
-            --primary-bg: #090d16;       
-            --card-bg: #141c2b;          
-            --accent-cyan: #00f5d4;      
-            --accent-pink: #ff007f;      
-            --accent-purple: #9b5de5;    
-            --text-pure: #ffffff;        
-            --text-muted: #94a3b8;       
-            --neon-glow: 0 0 15px rgba(0, 245, 212, 0.4);
-        }
+    <title>Connect Media Solutions | Next-Gen Display Ecosystem</title>
+    <!-- Premium Typographic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+    <!-- All Premium Styling is Built Directly Here -->
+    <style>
+        /* Core Structural Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--primary-bg);
-            color: var(--text-pure);
-            line-height: 1.6;
+            background-color: #0a0a0c; /* Deep true-black makes your LED panel screen photos pop */
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(9, 13, 22, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 2px solid var(--card-bg);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header Navigation UI */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            padding: 2rem 6%;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.8), transparent);
         }
 
         .logo {
-            font-size: 1.4rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-cyan);
-            text-shadow: var(--neon-glow);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
         }
 
         nav a {
-            color: var(--text-pure);
+            color: #a0a0a5;
             text-decoration: none;
-            font-weight: 600;
+            margin-left: 2rem;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-cyan);
+            color: #ffffff;
         }
 
+        /* Master Action Button Components */
+        .btn-primary {
+            background-color: #ffffff;
+            color: #0a0a0c;
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, opacity 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Dynamic Ambient Hero Viewport */
         .hero {
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 2rem;
-            background: linear-gradient(rgba(9, 13, 22, 0.75), rgba(9, 13, 22, 0.9)), 
-                        url('pic1.jpg') no-repeat center center/cover;
-            padding-top: 80px;
+            padding: 0 6%;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10,10,12,0.3), #0a0a0c 95%);
         }
 
         .hero-content {
-            max-width: 850px;
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
             margin-bottom: 1.5rem;
-            line-height: 1.15;
-            color: var(--accent-pink);
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
+        .text-gradient {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Vivid glowing accent */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #a0a0a5;
             margin-bottom: 2.5rem;
+            line-height: 1.6;
         }
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-cyan), #00b4d8);
-            color: #090d16;
-            padding: 1rem 2.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Visual Framing Content Anchors */
+        .section-tag {
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--neon-glow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 2px;
+            color: #ff416c;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 0.75rem;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 245, 212, 0.7);
+        /* About Section Focus */
+        .about-section {
+            padding: 6rem 6%;
+            background-color: #0a0a0c;
         }
 
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .about-container {
+            max-width: 800px;
         }
 
-        .section-title {
-            text-align: center;
+        .about-container h2 {
             font-size: 2.5rem;
             font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-container p {
+            color: #a0a0a5;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        /* Interactive Bento Grid Showcase Setup */
+        .portfolio-section {
+            padding: 4rem 6% 6rem 6%;
+        }
+
+        .section-header {
             margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: #606065;
+            margin-top: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 300px;
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            position: relative;
+            background-color: #121216;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            transition: transform 0.6s ease;
+        }
+
+        .bento-card:hover .card-bg {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            color: var(--accent-pink);
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan));
-            margin: 12px auto 0;
-            border-radius: 2px;
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        .grid-3 {
+        .card-content p {
+            font-size: 0.9rem;
+            color: #a0a0a5;
+            line-height: 1.5;
+        }
+
+        /* Distinct Card Box Scale Variables */
+        .card-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .card-tall {
+            grid-row: span 2;
+        }
+
+        /* Advanced Project Split Video Block layout */
+        .video-showcase-section {
+            padding: 6rem 6%;
+            background-color: #0a0a0c;
+        }
+
+        .showcase-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
             align-items: center;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 2.2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            position: relative;
+        .showcase-video-box {
+            background-color: #121216;
+            border-radius: 24px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 16 / 9;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
-        }
-
-        .card.cyan-accent::before {
-            background: linear-gradient(90deg, var(--accent-cyan), #00b4d8);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
+        .showcase-video-box video {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 1.2rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            display: block;
         }
 
-        .card h3 {
-            font-size: 1.4rem;
+        .showcase-description-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .desc-card {
+            background-color: #121216;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .desc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ff416c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1rem;
         }
 
-        .row-banner {
-            width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-top: 2rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        .desc-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
 
-        .tech-wrapper {
-            background: linear-gradient(rgba(9, 13, 22, 0.9), rgba(9, 13, 22, 0.9)), 
-                        url('pic5.jpg') no-repeat center center/cover;
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            padding: 6rem 0;
+        .desc-card p {
+            color: #a0a0a5;
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .list-style {
+        .spec-list {
             list-style: none;
         }
 
-        .list-style li {
-            margin-bottom: 1.5rem;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--text-muted);
+        .spec-list li {
+            font-size: 0.9rem;
+            color: #dddddd;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
         }
 
-        .list-style li::before {
-            content: "◆";
-            position: absolute;
-            left: 0; color: var(--accent-pink);
+        .spec-list li::before {
+            content: "⚡";
+            margin-right: 10px;
+            font-size: 0.8rem;
         }
 
-        .list-style strong {
-            color: var(--text-pure);
-            display: block;
-            font-size: 1.1rem;
+        /* Solid Contact Capture Layout Frame */
+        .contact-section {
+            padding: 6rem 6%;
+            background: linear-gradient(to bottom, #0a0a0c, #111115);
+            display: flex;
+            justify-content: center;
         }
 
         .contact-box {
-            background: linear-gradient(145deg, #101726, #090d16);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 4rem 3rem;
+            width: 100%;
+            max-width: 600px;
             text-align: center;
         }
 
-        .contact-banner {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
+        .contact-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-box p {
+            color: #a0a0a5;
             margin-bottom: 3rem;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin: 3rem 0;
+        .premium-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
 
-        .contact-item h4 {
-            color: var(--accent-cyan);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background-color: #18181f;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #ff416c;
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: #ffffff;
+            padding: 1.1rem;
+            border: none;
+            border-radius: 12px;
             font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
         }
 
-        .future-banner {
-            background: linear-gradient(rgba(9, 13, 22, 0.8), rgba(9, 13, 22, 0.95)), 
-                        url('pic12.jpg') no-repeat center center/cover;
-            padding: 5rem 2rem;
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        /* Footer Accent */
+        .footer {
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            color: #505055;
+            font-size: 0.85rem;
         }
 
-        footer {
-            background-color: #04060a;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #55657e;
-        }
-
-        @media (max-width: 900px) {
-            .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; }
+        /* Fluid Layout Conversions across Mobile Screen Sizes */
+        @media (max-width: 968px) {
+            .navbar {
+                padding: 1.5rem 5%;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 300px;
+            }
+            .card-large, .card-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .showcase-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .desc-card {
+                padding: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">Connect Media Solutions</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#revolution">Revolution</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#technology">Technology</a></li>
-                    <li><a href="#applications">Applications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo">CONNECT MEDIA SOLUTIONS</div>
+        <nav>
+            <a href="#about">Who We Are</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#projects">Live Installations</a>
+            <a href="#contact" class="btn-primary">Get A Quote</a>
+        </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Connect Media Solutions</h1>
-            <p>Premium LED display networks engineered for maximum impact and nationwide delivery.</p>
-            <a href="#contact" class="btn">Initiate Consultation</a>
+    <!-- Hero Header Backdrop Section -->
+    <section class="hero">
+        <div class="video-container">
+            <!-- References your images or a video format file -->
+            <video autoplay loop muted playsinline poster="pic1.jpg">
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
         </div>
-    </section>
-
-    <section id="revolution" class="split-layout">
-        <div>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">The Visual Revolution</h2>
-            <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                <strong>The Challenge:</strong> Fixed, static print advertisements easily fade into background clutter within bustling public commercial areas.<br><br>
-                <strong>The Demand:</strong> Modern audiences expect vibrant, high-definition digital signage layouts that naturally pull focus.
-            </p>
-            <p style="color: var(--accent-cyan); font-weight: 700;">Our Integration Blueprint: We implement cutting-edge display setups that elevate your workspace aesthetics.</p>
-        </div>
-        <div>
-            <img src="pic2.jpg" alt="Display Screen Integration Showcase" class="row-banner" style="margin-top: 0;">
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="split-layout" style="margin-bottom: 4rem;">
-            <div>
-                <img src="pic3.jpg" alt="Technical Layout Configuration" class="row-banner" style="margin-top: 0;">
-            </div>
-            <div>
-                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Who We Are</h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; mb: 1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
-                <ul class="list-style" style="margin-top: 1.5rem;">
-                    <li><strong>Robust Panel Assemblies</strong> Built with long lifecycle resilience to thrive continuously in demanding operations.</li>
-                    <li><strong>Graphic Superiority</strong> Every deployment is calibrated carefully to achieve bright output performance metrics.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div style="margin-top: 5rem; text-align: center;">
-            <h2 class="section-title">Our Nationwide Infrastructure</h2>
-            <p style="color: var(--text-muted); max-width: 800px; margin: -2rem auto 2.5rem;">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
-            <div class="grid-3" style="text-align: left; margin-bottom: 3rem;">
-                <div class="card"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
-                <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
-                <div class="card"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
-            </div>
-            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
-        </div>
-    </section>
-
-    <div class="tech-wrapper" id="technology">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="section-title">Precision Hardware Specifications</h2>
-            <div class="grid-3">
-                <div class="card cyan-accent">
-                    <h3>High Pixel Density</h3>
-                    <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Adaptive Contrast</h3>
-                    <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Smart Energy Integration</h3>
-                    <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="applications">
-        <h2 class="section-title">Versatile Architecture Use</h2>
-        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
         
-        <div class="grid-3">
-            <div class="card">
-                <img src="pic6.jpg" alt="Corporate Environment Assembly">
-                <h3>Corporate</h3>
-                <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
-            </div>
-            <div class="card">
-                <img src="pic7.jpg" alt="Retail Front Display Setup">
-                <h3>Commercial</h3>
-                <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
-            </div>
-            <div class="card">
-                <img src="pic8.jpg" alt="Large Area Arena Panel Display">
-                <h3>Public Spaces</h3>
-                <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
+        <div class="hero-content">
+            <h1>NEXT-GEN <br><span class="text-gradient">DISPLAY ECOSYSTEM</span></h1>
+            <p>Immersive, ultra-high-resolution visual engineering tailored for elite corporate, retail, and broadcast environments.</p>
+            <div class="hero-buttons">
+                <a href="#ecosystem" class="btn-primary">Explore Products</a>
+                <a href="#contact" class="btn-secondary">Contact Expert</a>
             </div>
         </div>
     </section>
 
-    <section id="workflow" class="split-layout">
-        <div>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Strategic Project Lifecycle</h2>
-            <ul class="list-style">
-                <li><strong>1. Planning Phases</strong> We audit structural wall weight tolerances and specify your ideal cabinet size layouts.</li>
-                <li><strong>2. On-Site Deployment</strong> Precise module positioning, control receiver adjustments, and data link cascading checks.</li>
-                <li><strong>3. Ongoing Support</strong> Consistent system testing cycles to preserve operational uptime across your display lifespan.</li>
-            </ul>
-        </div>
-        <div>
-            <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" style="margin-top:0;">
+    <!-- Core Brand Narrative Section (Who We Are) -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <span class="section-tag">WHO WE ARE</span>
+            <h2>Engineering Visual Masterpieces</h2>
+            <p>
+                We deliver cutting-edge LED video wall solutions engineered for maximum brilliance, absolute pixel precision, and long-term structural durability. From high-end corporate boardrooms to major outdoor display installations, we turn physical spaces into highly immersive digital environments.
+            </p>
         </div>
     </section>
 
-    <section id="credentials" style="padding-top: 0;">
-        <div class="card split-layout" style="background-color: #111a2e; padding: 3rem; border-radius: 16px;">
-            <div>
-                <h2 style="font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">Company Compliances</h2>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We carry out operations as a fully incorporated commercial firm backed by verified legal and corporate registration data.</p>
-                <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Corporate Address Setup:</strong></p>
-                <p style="color: var(--text-muted); font-family: monospace; margin-bottom: 1.5rem;">CK 15/13, Sudiya, Varanasi, Uttar Pradesh — 221001</p>
-                <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Tax Identification Metric (GSTIN):</strong></p>
-                <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
+    <!-- Upgraded Premium Bento Grid (Connected directly to your images in 445026.jpg) -->
+    <section id="ecosystem" class="portfolio-section">
+        <div class="section-header">
+            <span class="section-tag">PRODUCT CONFIGURATIONS</span>
+            <h2>Our Display Ecosystem</h2>
+            <p>Select a precision structural specification engineered to fit your layout requirements perfectly.</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Large Focus Block: P1.8 Fine Pitch Indoor Display (Linked to pic2.jpg) -->
+            <div class="bento-card card-large">
+                <div class="card-bg" style="background-image: url('pic2.jpg');"></div>
+                <div class="card-content">
+                    <span class="tag">Ultra-Fine Pitch</span>
+                    <h3>P1.8 Fine Pitch Indoor</h3>
+                    <p>Immaculate resolution execution, high refresh rates, and crisp contrast delivery. Engineered specifically for critical monitoring setups, broadcast studios, executive boardrooms, and luxury commercial retail spaces.</p>
+                </div>
             </div>
-            <div>
-                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
+
+            <!-- Tall Block: Weatherproof High-Brightness Outdoor (Linked to pic3.jpg) -->
+            <div class="bento-card card-tall">
+                <div class="card-bg" style="background-image: url('pic3.jpg');"></div>
+                <div class="card-content">
+                    <span class="tag">Heavy Duty</span>
+                    <h3>P4 Outdoor Screens</h3>
+                    <p>Designed with robust weatherproof casings and ultra-high nit brightness tracking. Retains completely rich, vibrant image clarity even under intense, direct afternoon sunlight conditions for maximum visual reach.</p>
+                </div>
+            </div>
+
+            <!-- Standard Block: P3 Standard Indoor Configuration (Linked to pic4.jpg) -->
+            <div class="bento-card">
+                <div class="card-bg" style="background-image: url('pic4.jpg');"></div>
+                <div class="card-content">
+                    <span class="tag">Commercial Grade</span>
+                    <h3>P3 Vibrant Indoor</h3>
+                    <p>The standard choice balancing optimal high pixel density with cost efficiency. Perfect for corporate event halls, shopping malls, and large auditoriums.</p>
+                </div>
+            </div>
+
+            <!-- Standard Block: Custom Architectural Engineering (Linked to pic5.jpg) -->
+            <div class="bento-card">
+                <div class="card-bg" style="background-image: url('pic5.jpg');"></div>
+                <div class="card-content">
+                    <span class="tag">Tailored Engineering</span>
+                    <h3>Custom Layouts</h3>
+                    <p>From curved presentation walls to complex geometric structures, built precisely to line up with any architectural framing constraint.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <!-- Modern Interactive Project Video Showcase Section -->
+    <section id="projects" class="video-showcase-section">
+        <div class="section-header">
+            <span class="section-tag">LIVE INSTALLATIONS</span>
+            <h2>Our Projects in Action</h2>
+            <p>See our actual display configurations engineered and operating smoothly on site.</p>
+        </div>
+
+        <div class="showcase-container">
+            <!-- Left Element: Massive Video Frame Viewport (Uses pic6.jpg as thumbnail poster) -->
+            <div class="showcase-video-box">
+                <video controls preload="metadata" poster="pic6.jpg">
+                    <source src="project-installation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Right Element: Technical Installation Details Text Info -->
+            <div class="showcase-description-box">
+                <div class="desc-card">
+                    <span class="desc-badge">Featured Deployment</span>
+                    <h3>Precision LED Video Wall Engineering</h3>
+                    <p>
+                        This deployment highlights a seamless, ultra-high-definition structural configuration. Tailored for maximum visual angles, our systems utilize automated calibration to preserve uniform brightness and seamless alignment across every module boundary.
+                    </p>
+                    <ul class="spec-list">
+                        <li><strong>Pixel Integration:</strong> High-density seamless configuration</li>
+                        <li><strong>Operations Area:</strong> Full on-site engineering and testing across Varanasi</li>
+                        <li><strong>Cabinet Build:</strong> Precision die-cast structural panel architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsive Lead Capture & Contact Details Section -->
+    <section id="contact" class="contact-section">
         <div class="contact-box">
-            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner">
-
-            <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
-            <p style="color: var(--text-muted);">Ready to establish an iconic visual benchmark at your location? Fill out your parameters below.</p>
+            <h2>Let's Build Your Display</h2>
+            <p>Get in touch with our engineering team for customized configuration quotes, technical specs, and installation timelines.</p>
             
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 12px; max-width: 600px; margin: 3rem auto; text-align: left;">
-                <h3 style="font-size: 1.4rem; color: var(--accent-cyan); margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">Get a Custom LED Video Wall Quote</h3>
-                
-                <form id="leadForm" onsubmit="sendToWhatsApp(event)">
-                    <div style="margin-bottom: 1.2rem;">
-                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Your Name *</label>
-                        <input type="text" id="visitorName" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.2rem;">
-                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Mobile / Phone Number *</label>
-                        <input type="tel" id="visitorPhone" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">LED Wall Requirements & Screen Size *</label>
-                        <textarea id="visitorRequirements" rows="4" required placeholder="Example: Need a showroom display size 10x8 feet..." style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none; resize: vertical;"></textarea>
-                    </div>
-                    
-                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, #25D366, #1ebd59); color: white; border: none; padding: 1rem; border-radius: 6px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
-                        Submit via WhatsApp Chat
-                    </button>
-                </form>
-            </div>
-
-            <script>
-                function sendToWhatsApp(event) {
-                    event.preventDefault();
-                    const name = document.getElementById('visitorName').value;
-                    const phone = document.getElementById('visitorPhone').value;
-                    const requirements = document.getElementById('visitorRequirements').value;
-                    
-                    const message = "Hello Connect Media Solutions!\n\nI have a new LED project requirement:\n" +
-                                    "━ Name: " + name + "\n" +
-                                    "━ Phone: " + phone + "\n" +
-                                    "━ Requirements: " + requirements;
-                    
-                    const encodedMessage = encodeURIComponent(message);
-                    const whatsappURL = "https://wa.me/918299883006?text=" + encodedMessage;
-                    window.open(whatsappURL, '_blank');
-                }
-            </script>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h4>Direct Call Desk</h4>
-                    <p style="color: var(--accent-cyan); font-size: 1.4rem; font-weight: 700;">+91 8299883006</p>
+            <form class="premium-form" action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
                 </div>
-                <div class="contact-item">
-                    <h4>Corporate Office</h4>
-                    <p style="font-size: 1.05rem; color: #e2e8f0;">CK 15/13, Sudiya, Varanasi,<br>Uttar Pradesh — 221001</p>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
                 </div>
-                <div class="contact-item">
-                    <h4>Operational Area</h4>
-                    <p style="font-size: 1.05rem; color: #e2e8f0;">Central hub in Varanasi.<br>Freight networks active India-wide.</p>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" required>
                 </div>
-            </div>
-
-            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                <a href="https://wa.me/918299883006" target="_blank" style="display: flex; align-items: center; gap: 10px; background: #25D366; color: #ffffff; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
-                    WhatsApp Chat
-                </a>
-                <a href="https://www.instagram.com/connect.media.solutions?igsh=bzc2czVtcDZyZDVz" target="_blank" style="display: flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #ffffff; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(220, 39, 67, 0.4);">
-                    Instagram Profile
-                </a>
-            </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your project requirements (e.g. Desired Screen Dimensions, Pitch, Indoor/Outdoor deployment)..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Inquiry</button>
+            </form>
         </div>
     </section>
 
-    <div class="future-banner">
-        <h2>The Future Is Bright</h2>
-        <p style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
-        <a href="tel:+918299883006" class="btn" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
+    <!-- Core Brand Footer Element -->
+    <footer class="footer">
+        <p>&copy; 2026 Connect Media Solutions. All Rights Reserved.</p>
     </footer>
+
+    <!-- Modern Apple-Style Scroll Reveal Animation Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Activates sleek transitions across product panels and video containers automatically
+        document.querySelectorAll('.bento-card, .desc-card, .showcase-video-box').forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(40px)";
+            el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>
