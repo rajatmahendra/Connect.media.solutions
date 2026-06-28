@@ -585,6 +585,7 @@
             <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 12px; max-width: 600px; margin: 3rem auto; text-align: left;">
                 <h3 style="font-size: 1.4rem; color: var(--accent-cyan); margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">Get a Custom LED Video Wall Quote</h3>
                 
+                <!-- Form Fix Added Back Securely -->
                 <form id="leadForm" onsubmit="sendToWhatsApp(event)">
                     <div style="margin-bottom: 1.2rem;">
                         <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Your Name *</label>
@@ -605,6 +606,25 @@
                         Submit via WhatsApp Chat
                     </button>
                 </form>
+
+                <!-- FIXED JAVASCRIPT FUNCTION RESTORED -->
+                <script>
+                    function sendToWhatsApp(event) {
+                        event.preventDefault();
+                        const name = document.getElementById('visitorName').value;
+                        const phone = document.getElementById('visitorPhone').value;
+                        const requirements = document.getElementById('visitorRequirements').value;
+                        
+                        const message = "Hello Connect Media Solutions!\n\nI have a new LED project requirement:\n" +
+                                        "━ Name: " + name + "\n" +
+                                        "━ Phone: " + phone + "\n" +
+                                        "━ Requirements: " + requirements;
+                        
+                        const encodedMessage = encodeURIComponent(message);
+                        const whatsappURL = "https://wa.me/918299883006?text=" + encodedMessage;
+                        window.open(whatsappURL, '_blank');
+                    }
+                </script>
             </div>
 
             <div class="contact-grid">
