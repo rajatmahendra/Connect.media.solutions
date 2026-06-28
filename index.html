@@ -29,7 +29,7 @@
             color: var(--text-pure);
             line-height: 1.6;
             overflow-x: hidden;
-            perspective: 1200px; /* Enhanced depth perception for 3D shifts */
+            perspective: 1000px; /* Forces 3D perspective depth tracking on all sub-elements */
         }
 
         header {
@@ -136,7 +136,6 @@
             margin: 0 auto;
         }
 
-        /* Group container to protect header text from overlapping structural rules */
         .header-group {
             text-align: center;
             margin-bottom: 3.5rem;
@@ -339,7 +338,7 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content runtime-animate-target">
+        <div class="hero-content">
             <h1>Connect Media Solutions</h1>
             <p>Premium LED display networks engineered for maximum impact and nationwide delivery.</p>
             <a href="#contact" class="btn">Initiate Consultation</a>
@@ -347,7 +346,7 @@
     </section>
 
     <section id="revolution" class="split-layout">
-        <div class="runtime-animate-target">
+        <div>
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">The Visual Revolution</h2>
             <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.5rem;">
                 <strong>The Challenge:</strong> Fixed, static print advertisements easily fade into background clutter within bustling public commercial areas.<br><br>
@@ -355,17 +354,17 @@
             </p>
             <p style="color: var(--accent-cyan); font-weight: 700;">Our Integration Blueprint: We implement cutting-edge display setups that elevate your workspace aesthetics.</p>
         </div>
-        <div class="runtime-animate-target">
+        <div>
             <img src="pic2.jpg" alt="Display Screen Integration Showcase" class="row-banner" style="margin-top: 0;">
         </div>
     </section>
 
     <section id="about">
         <div class="split-layout" style="margin-bottom: 4rem;">
-            <div class="runtime-animate-target">
+            <div>
                 <img src="pic3.jpg" alt="Technical Layout Configuration" class="row-banner" style="margin-top: 0;">
             </div>
-            <div class="runtime-animate-target">
+            <div>
                 <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Who We Are</h2>
                 <p style="color: var(--text-muted); font-size: 1.1rem; mb: 1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
                 <ul class="list-style" style="margin-top: 1.5rem;">
@@ -376,34 +375,34 @@
         </div>
 
         <div style="margin-top: 5rem; text-align: center;">
-            <div class="header-group runtime-animate-target">
+            <div class="header-group">
                 <h2 class="section-title">Our Nationwide Infrastructure</h2>
                 <p class="section-subtitle">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
             </div>
             <div class="grid-3" style="text-align: left; margin-bottom: 3rem;">
-                <div class="card runtime-animate-target"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
-                <div class="card runtime-animate-target"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
-                <div class="card runtime-animate-target"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
+                <div class="card"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
+                <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
+                <div class="card"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
             </div>
-            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner runtime-animate-target">
+            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
         </div>
     </section>
 
     <div class="tech-wrapper" id="technology">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <div class="header-group runtime-animate-target">
+            <div class="header-group">
                 <h2 class="section-title">Precision Hardware Specifications</h2>
             </div>
             <div class="grid-3">
-                <div class="card cyan-accent runtime-animate-target">
+                <div class="card cyan-accent">
                     <h3>High Pixel Density</h3>
                     <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
                 </div>
-                <div class="card cyan-accent runtime-animate-target">
+                <div class="card cyan-accent">
                     <h3>Adaptive Contrast</h3>
                     <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
                 </div>
-                <div class="card cyan-accent runtime-animate-target">
+                <div class="card cyan-accent">
                     <h3>Smart Energy Integration</h3>
                     <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
                 </div>
@@ -412,23 +411,23 @@
     </div>
 
     <section id="applications">
-        <div class="header-group runtime-animate-target">
+        <div class="header-group">
             <h2 class="section-title">Versatile Architecture Use</h2>
             <p class="section-subtitle">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
         </div>
         
         <div class="grid-3">
-            <div class="card runtime-animate-target">
+            <div class="card">
                 <img src="pic6.jpg" alt="Corporate Environment Assembly">
                 <h3>Corporate</h3>
                 <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
             </div>
-            <div class="card runtime-animate-target">
+            <div class="card">
                 <img src="pic7.jpg" alt="Retail Front Display Setup">
                 <h3>Commercial</h3>
                 <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
             </div>
-            <div class="card runtime-animate-target">
+            <div class="card">
                 <img src="pic8.jpg" alt="Large Area Arena Panel Display">
                 <h3>Public Spaces</h3>
                 <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
@@ -437,7 +436,7 @@
     </section>
 
     <section id="workflow" class="split-layout">
-        <div class="runtime-animate-target">
+        <div>
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Strategic Project Lifecycle</h2>
             <ul class="list-style">
                 <li><strong>1. Planning Phases</strong> We audit structural wall weight tolerances and specify your ideal cabinet size layouts.</li>
@@ -445,13 +444,13 @@
                 <li><strong>3. Ongoing Support</strong> Consistent system testing cycles to preserve operational uptime across your display lifespan.</li>
             </ul>
         </div>
-        <div class="runtime-animate-target">
+        <div>
             <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" style="margin-top:0;">
         </div>
     </section>
 
     <section id="credentials" style="padding-top: 0;">
-        <div class="card split-layout runtime-animate-target" style="background-color: #111a2e; padding: 3rem; border-radius: 16px;">
+        <div class="card split-layout" style="background-color: #111a2e; padding: 3rem; border-radius: 16px;">
             <div>
                 <h2 style="font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">Company Compliances</h2>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We carry out operations as a fully incorporated commercial firm backed by verified legal and corporate registration data.</p>
@@ -460,14 +459,14 @@
                 <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Tax Identification Metric (GSTIN):</strong></p>
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
-            <div class="runtime-animate-target">
+            <div>
                 <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="contact-box runtime-animate-target">
+        <div class="contact-box">
             <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner">
 
             <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
@@ -543,9 +542,9 @@
     </section>
 
     <div class="future-banner">
-        <h2 class="runtime-animate-target">The Future Is Bright</h2>
-        <p class="runtime-animate-target" style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
-        <a href="tel:+918299883006" class="btn runtime-animate-target" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
+        <h2>The Future Is Bright</h2>
+        <p style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
+        <a href="tel:+918299883006" class="btn" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
     </div>
 
     <footer>
@@ -553,42 +552,57 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const targets = document.querySelectorAll('.runtime-animate-target');
+        // Use a secure check to make sure the script runs after everything is built
+        window.addEventListener('DOMContentLoaded', function() {
             
-            // Premium matrix using safe, bold vertical/depth scaling transformations
-            const animationStyles = [
-                { init: "translateY(70px) scale(0.92) filter(blur(4px))", active: "translateY(0) scale(1) filter(blur(0px))" }, // Cinematic Lift
-                { init: "rotateX(-18deg) translateY(60px) opacity(0)", active: "rotateX(0deg) translateY(0) opacity(1)" }, // Dramatic 3D Flip Up
-                { init: "scale(0.85) filter(blur(6px))", active: "scale(1) filter(blur(0px))" } // Immersive Focal Zoom
+            // Auto-targets your cards, columns, sections, and structural banners instantly
+            const elements = document.querySelectorAll('.card, .row-banner, .contact-box, .split-layout > div, .header-group');
+            
+            // High-impact 3D matrix configurations
+            const mechanicalStyles = [
+                { init: "matrix3d(0.95, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 1, 0, 0, 80, 0, 1)", active: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)" }, // Deep 3D Lift Pop
+                { init: "rotateX(-25deg) translateY(60px)", active: "rotateX(0deg) translateY(0)" }, // Premium 3D Flipping block
+                { init: "scale(0.88) filter(blur(5px))", active: "scale(1) filter(blur(0px))" } // Smooth Focal Zoom In
             ];
 
-            targets.forEach((element) => {
-                element.style.opacity = "0";
-                element.style.transition = "opacity 1.1s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1.1s cubic-bezier(0.215, 0.610, 0.355, 1), filter 1.1s ease";
-                element.style.willChange = "transform, opacity, filter";
+            // Setup a safety mechanism: If browser drops animation tracking, force show everything automatically
+            const safetyTimeout = setTimeout(() => {
+                elements.forEach(el => {
+                    el.style.opacity = "1";
+                    el.style.transform = "none";
+                    el.style.filter = "none";
+                });
+                console.log("Animation safety override triggered.");
+            }, 3500);
+
+            elements.forEach((el) => {
+                el.style.opacity = "0";
+                el.style.transition = "opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease";
+                el.style.willChange = "transform, opacity, filter";
                 
-                // Set randomly selected configuration
-                const style = animationStyles[Math.floor(Math.random() * animationStyles.length)];
-                element.style.transform = style.init;
-                element.setAttribute('data-reveal-active', style.active);
+                // Randomly bind animation style matrix properties
+                const randomStyle = mechanicalStyles[Math.floor(Math.random() * mechanicalStyles.length)];
+                el.style.transform = randomStyle.init;
+                el.setAttribute('data-target-reveal', randomStyle.active);
             });
 
+            // Active structural observer tracking
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const activeTransform = entry.target.getAttribute('data-reveal-active');
+                        const targetTransform = entry.target.getAttribute('data-target-reveal');
                         entry.target.style.opacity = "1";
-                        entry.target.style.transform = activeTransform;
+                        entry.target.style.transform = targetTransform;
+                        entry.target.style.filter = "none";
                         observer.unobserve(entry.target); 
                     }
                 });
             }, {
-                threshold: 0.05,
-                rootMargin: "0px 0px -50px 0px"
+                threshold: 0.02, // Triggers as soon as the element skims 2% into view
+                rootMargin: "0px 0px -20px 0px"
             });
 
-            targets.forEach(target => observer.observe(target));
+            elements.forEach(target => observer.observe(target));
         });
     </script>
 
