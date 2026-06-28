@@ -160,18 +160,16 @@
             gap: 2.5rem;
         }
 
-        /* Responsive Sub-Grids for Landscape Video Layouts */
         .video-landscape-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             margin-bottom: 5rem;
         }
 
-        /* Specially Optimized Grid for Vertical 9:16 Shorts Containers */
         .video-shorts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
 
@@ -216,10 +214,9 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Immersive responsive frames preventing embed clipping */
         .embed-container-landscape {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 6px;
@@ -229,7 +226,7 @@
 
         .embed-container-shorts {
             position: relative;
-            padding-bottom: 177.78%; /* Exact 9:16 Vertical Shorts Aspect Ratio */
+            padding-bottom: 177.78%;
             height: 0;
             overflow: hidden;
             border-radius: 6px;
@@ -346,7 +343,6 @@
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
-            .video-landscape-grid { grid-template-columns: 1fr; }
             nav { display: none; }
         }
     </style>
@@ -462,78 +458,89 @@
         </div>
     </section>
 
+    <!-- ── ACTIVE MULTIMEDIA SHOWCASE HUB (ALL YOUR REAL VIDEOS Pinned) ── -->
     <section id="media-hub" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem;">
         <h2 class="section-title">On-Site Project Deployments</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
         
+        <!-- 4 Landscape Real Project Videos Grid Layout -->
         <div class="video-landscape-grid">
+            <!-- Video Card 1 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/pRdR85v5zwY" title="p2 5 high quality led wall installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <h3>Premium Corporate Boardroom</h3>
-                <p style="color: var(--text-muted);">Fine pixel pitch layout calibrated carefully to achieve crisp contrast delivery for close-range execution hubs.</p>
+                <h3>P2.5 Premium Indoor LED Wall</h3>
+                <p style="color: var(--text-muted);">High-quality interior structural panel alignment sequence optimizing true color depth.</p>
             </div>
 
+            <!-- Video Card 2 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/6OoBgYqe5_M" title="p2 5 high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <h3>Executive Command Center</h3>
-                <p style="color: var(--text-muted);">Robust screen configurations engineered for critical multi-window metrics tracking and 24/7 terminal resilience.</p>
+                <h3>P2.5 Fine Pitch Calibration</h3>
+                <p style="color: var(--text-muted);">Vivid screen refresh stress test monitoring uniformity parameters under standard setup room modules.</p>
             </div>
 
+            <!-- Video Card 3 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/IOEu9lSyuWc" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <h3>High-Impact Commercial Window</h3>
-                <p style="color: var(--text-muted);">Vivid exterior panel layout rendering premium high-contrast product branding across elite retail corridors.</p>
+                <h3>P4 Heavy Duty Outdoor Integration</h3>
+                <p style="color: var(--text-muted);">Weatherproof structural external cabinet mounting ensuring high-brightness panel performance.</p>
             </div>
 
+            <!-- Video Card 4 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/99g2kXDNQuw" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <h3>Auditorium Presentation Screen</h3>
-                <p style="color: var(--text-muted);">Large-scale physical setup engineered to deliver high-brightness clarity to far-reaching stadium architectures.</p>
+                <h3>P4 High-Contrast Outdoor Display</h3>
+                <p style="color: var(--text-muted);">Large-scale physical billboard deployment engineering tracking data signal cascading live.</p>
             </div>
         </div>
 
         <h2 class="section-title">Live Installation Reels</h2>
-        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Quick smartphone snapshots of our hardware structural metrics and panel alignment checks.</p>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Real on-site smartphone snapshots of our hardware structural metrics and panel alignment checks.</p>
 
+        <!-- 4 Real-World Verified Shorts Layout Grid -->
         <div class="video-shorts-grid">
+            <!-- Shorts 1 -->
             <div class="card">
                 <div class="embed-container-shorts">
-                    <iframe src="https://www.youtube.com/embed/KvQ8KYIHzuU" title="p3 outdoor high quality" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/KvQ8KYIHzuU" title="p3 outdoor high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">P3 Outdoor Premium Wall</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">High-quality, sunlight-readable external modular setup testing sequence.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">High-quality, sunlight-readable external modular setup testing sequence[span_0](start_span)[span_0](end_span).</p>
             </div>
 
+            <!-- Shorts 2 -->
             <div class="card">
                 <div class="embed-container-shorts">
-                    <iframe src="https://www.youtube.com/embed/cresWg6C1Uw" title="p4 outdoor high quality" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/cresWg6C1Uw" title="p4 outdoor high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">P4 Heavy Duty Outdoor Display</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Weatherproof hardware configuration tracking color consistency live.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Weatherproof hardware configuration tracking color consistency live[span_1](start_span)[span_1](end_span).</p>
             </div>
 
+            <!-- Shorts 3 -->
             <div class="card">
                 <div class="embed-container-shorts">
-                    <iframe src="https://www.youtube.com/embed/LGibFl4Ug3I" title="p4 outdoor high quality installation at Duchie Duchie varanasi showroom" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/LGibFl4Ug3I" title="p4 outdoor high quality installation at Duchie Duchie varanasi showroom" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Duchie Duchie Showroom (Varanasi)</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Complete custom P4 outdoor luxury storefront screen deployment setup.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Complete custom P4 outdoor luxury storefront screen deployment setup[span_2](start_span)[span_2](end_span).</p>
             </div>
 
+            <!-- Shorts 4 -->
             <div class="card">
                 <div class="embed-container-shorts">
-                    <iframe src="https://www.youtube.com/embed/wg4ipEqjVBI" title="narayan das sarraf varanasi p2.0 outdoor installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/wg4ipEqjVBI" title="narayan das sarraf varanasi p2.0 outdoor installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Narayan Das Sarraf (Varanasi)</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">High-density structural P2.0 outdoor commercial display integration.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">High-density structural P2.0 outdoor commercial display integration[span_3](start_span)[span_3](end_span).</p>
             </div>
         </div>
     </section>
@@ -563,7 +570,7 @@
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
             <div>
-                <img pic="pic10.jpg" src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
+                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
             </div>
         </div>
     </section>
@@ -599,24 +606,6 @@
                     </button>
                 </form>
             </div>
-
-            <script>
-                function sendToWhatsApp(event) {
-                    event.preventDefault();
-                    const name = document.getElementById('visitorName').value;
-                    const phone = document.getElementById('visitorPhone').value;
-                    const requirements = document.getElementById('visitorRequirements').value;
-                    
-                    const message = "Hello Connect Media Solutions!\n\nI have a new LED project requirement:\n" +
-                                    "━ Name: " + name + "\n" +
-                                    "━ Phone: " + phone + "\n" +
-                                    "━ Requirements: " + requirements;
-                    
-                    const encodedMessage = encodeURIComponent(message);
-                    const whatsappURL = "https://wa.me/918299883006?text=" + encodedMessage;
-                    window.open(whatsappURL, '_blank');
-                }
-            </script>
 
             <div class="contact-grid">
                 <div class="contact-item">
