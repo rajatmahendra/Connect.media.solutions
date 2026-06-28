@@ -302,6 +302,25 @@
             .hero h1 { font-size: 2.5rem; }
             nav { display: none; }
         }
+
+        /* ── NEW SCROLL REVEAL ANIMATION SYSTEM STYLES ── */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Delays sequential elements for an elegant loading waterfall sequence */
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
     </style>
 </head>
 <body>
@@ -323,7 +342,7 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content reveal-item">
             <h1>Connect Media Solutions</h1>
             <p>Premium LED display networks engineered for maximum impact and nationwide delivery.</p>
             <a href="#contact" class="btn">Initiate Consultation</a>
@@ -331,7 +350,7 @@
     </section>
 
     <section id="revolution" class="split-layout">
-        <div>
+        <div class="reveal-item">
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">The Visual Revolution</h2>
             <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.5rem;">
                 <strong>The Challenge:</strong> Fixed, static print advertisements easily fade into background clutter within bustling public commercial areas.<br><br>
@@ -339,17 +358,17 @@
             </p>
             <p style="color: var(--accent-cyan); font-weight: 700;">Our Integration Blueprint: We implement cutting-edge display setups that elevate your workspace aesthetics.</p>
         </div>
-        <div>
+        <div class="reveal-item delay-1">
             <img src="pic2.jpg" alt="Display Screen Integration Showcase" class="row-banner" style="margin-top: 0;">
         </div>
     </section>
 
     <section id="about">
         <div class="split-layout" style="margin-bottom: 4rem;">
-            <div>
+            <div class="reveal-item">
                 <img src="pic3.jpg" alt="Technical Layout Configuration" class="row-banner" style="margin-top: 0;">
             </div>
-            <div>
+            <div class="reveal-item delay-1">
                 <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Who We Are</h2>
                 <p style="color: var(--text-muted); font-size: 1.1rem; mb: 1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
                 <ul class="list-style" style="margin-top: 1.5rem;">
@@ -360,30 +379,30 @@
         </div>
 
         <div style="margin-top: 5rem; text-align: center;">
-            <h2 class="section-title">Our Nationwide Infrastructure</h2>
-            <p style="color: var(--text-muted); max-width: 800px; margin: -2rem auto 2.5rem;">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
+            <h2 class="section-title reveal-item">Our Nationwide Infrastructure</h2>
+            <p class="reveal-item" style="color: var(--text-muted); max-width: 800px; margin: -2rem auto 2.5rem;">We link custom panel building with reliable delivery mechanisms to activate your projects across any territory.</p>
             <div class="grid-3" style="text-align: left; margin-bottom: 3rem;">
-                <div class="card"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
-                <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
-                <div class="card"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
+                <div class="card reveal-item delay-1"><h3>Enterprise Lobbies</h3><p style="color: var(--text-muted);">Boardrooms, executive reception centers, and video display control hubs.</p></div>
+                <div class="card reveal-item delay-2"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
+                <div class="card reveal-item delay-3"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
             </div>
-            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
+            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner reveal-item">
         </div>
     </section>
 
     <div class="tech-wrapper" id="technology">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="section-title">Precision Hardware Specifications</h2>
+            <h2 class="section-title reveal-item">Precision Hardware Specifications</h2>
             <div class="grid-3">
-                <div class="card cyan-accent">
+                <div class="card cyan-accent reveal-item delay-1">
                     <h3>High Pixel Density</h3>
                     <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
                 </div>
-                <div class="card cyan-accent">
+                <div class="card cyan-accent reveal-item delay-2">
                     <h3>Adaptive Contrast</h3>
                     <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
                 </div>
-                <div class="card cyan-accent">
+                <div class="card cyan-accent reveal-item delay-3">
                     <h3>Smart Energy Integration</h3>
                     <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
                 </div>
@@ -392,21 +411,21 @@
     </div>
 
     <section id="applications">
-        <h2 class="section-title">Versatile Architecture Use</h2>
-        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
+        <h2 class="section-title reveal-item">Versatile Architecture Use</h2>
+        <p class="reveal-item" style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
         
         <div class="grid-3">
-            <div class="card">
+            <div class="card reveal-item delay-1">
                 <img src="pic6.jpg" alt="Corporate Environment Assembly">
                 <h3>Corporate</h3>
                 <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
             </div>
-            <div class="card">
+            <div class="card reveal-item delay-2">
                 <img src="pic7.jpg" alt="Retail Front Display Setup">
                 <h3>Commercial</h3>
                 <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
             </div>
-            <div class="card">
+            <div class="card reveal-item delay-3">
                 <img src="pic8.jpg" alt="Large Area Arena Panel Display">
                 <h3>Public Spaces</h3>
                 <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
@@ -415,7 +434,7 @@
     </section>
 
     <section id="workflow" class="split-layout">
-        <div>
+        <div class="reveal-item">
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Strategic Project Lifecycle</h2>
             <ul class="list-style">
                 <li><strong>1. Planning Phases</strong> We audit structural wall weight tolerances and specify your ideal cabinet size layouts.</li>
@@ -423,13 +442,13 @@
                 <li><strong>3. Ongoing Support</strong> Consistent system testing cycles to preserve operational uptime across your display lifespan.</li>
             </ul>
         </div>
-        <div>
+        <div class="reveal-item delay-1">
             <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" style="margin-top:0;">
         </div>
     </section>
 
     <section id="credentials" style="padding-top: 0;">
-        <div class="card split-layout" style="background-color: #111a2e; padding: 3rem; border-radius: 16px;">
+        <div class="card split-layout reveal-item" style="background-color: #111a2e; padding: 3rem; border-radius: 16px;">
             <div>
                 <h2 style="font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">Company Compliances</h2>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We carry out operations as a fully incorporated commercial firm backed by verified legal and corporate registration data.</p>
@@ -438,20 +457,20 @@
                 <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Tax Identification Metric (GSTIN):</strong></p>
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
-            <div>
+            <div class="reveal-item delay-1">
                 <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="contact-box">
-            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner">
+        <div class="contact-box reveal-item">
+            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner reveal-item delay-1">
 
-            <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
-            <p style="color: var(--text-muted);">Ready to establish an iconic visual benchmark at your location? Fill out your parameters below.</p>
+            <h2 class="reveal-item delay-1" style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
+            <p class="reveal-item delay-1" style="color: var(--text-muted);">Ready to establish an iconic visual benchmark at your location? Fill out your parameters below.</p>
             
-            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 12px; max-width: 600px; margin: 3rem auto; text-align: left;">
+            <div class="reveal-item delay-2" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 12px; max-width: 600px; margin: 3rem auto; text-align: left;">
                 <h3 style="font-size: 1.4rem; color: var(--accent-cyan); margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">Get a Custom LED Video Wall Quote</h3>
                 
                 <form id="leadForm" onsubmit="sendToWhatsApp(event)">
@@ -494,7 +513,7 @@
                 }
             </script>
 
-            <div class="contact-grid">
+            <div class="contact-grid reveal-item">
                 <div class="contact-item">
                     <h4>Direct Call Desk</h4>
                     <p style="color: var(--accent-cyan); font-size: 1.4rem; font-weight: 700;">+91 8299883006</p>
@@ -509,7 +528,7 @@
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;" class="reveal-item">
                 <a href="https://wa.me/918299883006" target="_blank" style="display: flex; align-items: center; gap: 10px; background: #25D366; color: #ffffff; padding: 0.8rem 2rem; border-radius: 30px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);">
                     WhatsApp Chat
                 </a>
@@ -521,14 +540,46 @@
     </section>
 
     <div class="future-banner">
-        <h2>The Future Is Bright</h2>
-        <p style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
-        <a href="tel:+918299883006" class="btn" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
+        <h2 class="reveal-item">The Future Is Bright</h2>
+        <p class="reveal-item delay-1" style="color: #e2e8f0; font-size: 1.15rem; font-style: italic; max-width: 650px; margin: 0 auto 2rem;">Transition away from traditional setups. Transition into digital excellence with dynamic engineering.</p>
+        <a href="tel:+918299883006" class="btn reveal-item delay-2" style="background: linear-gradient(135deg, var(--accent-pink), #bc1888); color: white; box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);">Launch Your Project Now</a>
     </div>
 
     <footer>
         <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
     </footer>
+
+    <!-- ── NATIVE SCROLL ANIMATION CONTROLLER ENGINE ── -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Automatically tags standard target elements for transition injection
+            const elementsToAnimate = document.querySelectorAll('.reveal-item, section h2, section p, .card, .split-layout img');
+            
+            elementsToAnimate.forEach((element) => {
+                if(!element.classList.contains('reveal-item')) {
+                    element.classList.add('reveal-item');
+                }
+            });
+
+            // Intersection Observer configuration
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: keeps elements running animation loop only once
+                        scrollObserver.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.08, // Element triggers reveal when 8% visible on screen
+                rootMargin: "0px 0px -40px 0px"
+            });
+
+            // Bind observer track to targeted elements
+            const finalTargets = document.querySelectorAll('.reveal-item');
+            finalTargets.forEach(target => scrollObserver.observe(target));
+        });
+    </script>
 
 </body>
 </html>
