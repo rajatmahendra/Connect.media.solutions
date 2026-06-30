@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Media Solutions | Next-Gen LED Video Walls</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
@@ -367,7 +367,7 @@
             border: 1px solid #fff;
         }
 
-        /* Flight Icon Neon Glow Styling Rules */
+        /* Flight Icon System - Dynamic Rotation & Smooth Translation */
         .flight-plane-container {
             display: flex;
             align-items: center;
@@ -718,7 +718,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors
+        // Fully Integrated Database of 36 Dedicated Installation Vectors
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -773,11 +773,6 @@
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           maxZoom: 20
         }).addTo(map);
-
-        // FORCED FALLBACK OVERRIDE FOR MISALIGNED TILES ON FIRST RENDER LOAD TIME
-        setTimeout(function() {
-            map.invalidateSize({ animate: false });
-        }, 300);
 
         const markerMap = {};
 
@@ -839,9 +834,8 @@
         
         let activePlaneMarker = null;
         let currentFlightPathLine = null;
-        let finalGlobalNetworkLines = []; 
 
-        // ── 1.5x SPEED PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──
+        // ── 2x FAST PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──
         document.getElementById('start-tour-btn').addEventListener('click', function() {
             
             const priorityTourQueue = [
@@ -876,40 +870,16 @@
             
             if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
             if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
-            finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
-            finalGlobalNetworkLines = [];
             map.closePopup();
 
             function executeNextPriorityStop() {
                 if (currentStopIndex >= priorityTourQueue.length) {
                     if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
                     if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
-                    map.closePopup();
-
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.5 });
-
-                    for (let i = 0; i < priorityTourQueue.length; i++) {
-                        for (let j = i + 1; j < Math.min(i + 5, priorityTourQueue.length); j++) {
-                            let webLine = L.polyline([
-                                [priorityTourQueue[i].lat, priorityTourQueue[i].lng],
-                                [priorityTourQueue[j].lat, priorityTourQueue[j].lng]
-                            ], {
-                                color: '#00f5d4',
-                                weight: 1.5,
-                                opacity: 0.5,
-                                dashArray: '4, 4'
-                            }).addTo(map);
-                            finalGlobalNetworkLines.push(webLine);
-                        }
-                    }
-
-                    setTimeout(() => {
-                        finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
-                        finalGlobalNetworkLines = [];
-                        btnElement.innerText = "🎬 Start Virtual Tour";
-                        btnElement.style.opacity = "1";
-                    }, 2000);
-
+                    
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });
+                    btnElement.innerText = "🎬 Start Virtual Tour";
+                    btnElement.style.opacity = "1";
                     return;
                 }
 
@@ -932,6 +902,7 @@
                     activePlaneMarker.setLatLng(startCoords);
                 }
 
+                // EXACT MATHEMATICAL NOSE ROTATION TILT TO PREVENT SIDEWAYS FLOATING
                 const dLng = endCoords[1] - startCoords[1];
                 const dLat = endCoords[0] - startCoords[0];
                 const headingAngle = Math.atan2(dLng, dLat) * (180 / Math.PI);
@@ -939,13 +910,14 @@
                 setTimeout(() => {
                     const planeDomNode = document.querySelector('.flight-plane-icon');
                     if (planeDomNode) {
+                        // Resets default 45deg tilt to keep plane nose perfectly straight forward along heading lines
                         planeDomNode.style.transform = `rotate(${headingAngle - 45}deg)`;
                     }
                 }, 50);
 
                 let progressInterval = null;
                 let frameStep = 0;
-                const totalFrames = 40; 
+                const totalFrames = 40; // Increased frame ticks for seamless translation increments
 
                 progressInterval = setInterval(() => {
                     frameStep++;
@@ -959,13 +931,14 @@
                     } else {
                         clearInterval(progressInterval);
                     }
-                }, 2200 / totalFrames); 
+                }, 1700 / totalFrames); 
 
                 map.flyTo(endCoords, currentTargetStop.zoom, {
                     animate: true,
-                    duration: 2.2
+                    duration: 1.7
                 });
 
+                // TRACKLINE AND PLANE KEPT VISIBLE SAFELY UNTIL DESTINATION RENDER ENDS COMPLETELY
                 map.once('moveend', function() {
                     if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
                     if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
