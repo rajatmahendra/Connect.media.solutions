@@ -7,7 +7,7 @@
     
     <!-- Leaflet Map Engine Style Sheet Sheet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <!-- FontAwesome Library for General Icons -->
+    <!-- FontAwesome Library for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
@@ -369,6 +369,48 @@
             border: 1px solid #fff;
         }
 
+        /* Fullscreen Map Layout Setup */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .map-wrapper.fullscreen-active {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 99999 !important;
+            background-color: #090d16;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .map-wrapper.fullscreen-active #live-map-canvas {
+            height: 100vh !important;
+            border-radius: 0 !important;
+        }
+        .fullscreen-toggle-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10000;
+            background: #141c2b;
+            color: #00f5d4;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
+        }
+        .fullscreen-toggle-btn:hover {
+            background: #00f5d4;
+            color: #090d16;
+        }
+
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
@@ -465,7 +507,11 @@
             </button>
         </div>
         
-        <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
+        <!-- WRAPPER CONTEXT FOR STABLE FULLSCREEN SWAP MAP GRID -->
+        <div class="map-wrapper" id="map-frame-wrapper">
+            <button class="fullscreen-toggle-btn" id="toggle-fs-btn"><i class="fa-solid fa-expand"></i> Fullscreen View</button>
+            <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
+        </div>
     </section>
 
     <!-- ── EXCLUSIVE PROJECT SHOWCASE GALLERY (VIDEOS & REELS) ── -->
@@ -550,7 +596,6 @@
             <h2 class="section-title">Precision Hardware Specifications</h2>
             <div class="grid-3">
                 <div class="card cyan-accent">
-                    ].setAttribute("style","color: var(--accent-cyan); font-weight:700;"); // Safe dynamic injector
                     <h3>High Pixel Density</h3>
                     <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
                 </div>
@@ -710,7 +755,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors[span_1](start_span)[span_1](end_span)
+        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors[span_0](start_span)[span_0](end_span)
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -757,19 +802,23 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
+        // 1. RE-ENABLED GESTURE HANDLING AND REMOVED ACCIDENTAL POINTER LOCKS[span_1](start_span)[span_1](end_span)
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
+          dragging: true,
+          touchZoom: true,
           tap: true
         }).setView([25.3350, 82.9500], 11);[span_2](start_span)[span_2](end_span)
 
+        // 2. STABLE HIGH-PERFORMANCE CARTO CDN DARK LAYER BASE
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           maxZoom: 20
         }).addTo(map);
 
-        // FORCED FALLBACK TILES SYNC OVERRIDE ON INITIAL RE-POSITION
+        // Immediate responsive validation sweep
         setTimeout(function() {
             map.invalidateSize({ animate: false });
-        }, 400);
+        }, 200);
 
         const markerMap = {};[span_3](start_span)[span_3](end_span)
 
@@ -825,7 +874,7 @@
         let currentFlightPathLine = null;
         let finalGlobalNetworkLines = []; 
 
-        // ── 1.5x SMOOTH PRIORITY-SORTED CINEMATIC VIRTUAL TOUR ENGINE ──[span_12](start_span)[span_12](end_span)
+        // ── 1.5x SPEED SMOOTH VIRTUAL TOUR ENGINE (CRASHING PLANE ARTIFACT REMOVED REMOVED) ──[span_12](start_span)[span_12](end_span)
         document.getElementById('start-tour-btn').addEventListener('click', function() {[span_13](start_span)[span_13](end_span)
             
             const priorityTourQueue = [[span_14](start_span)[span_14](end_span)
@@ -868,9 +917,10 @@
                     if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
                     map.closePopup();[span_25](start_span)[span_25](end_span)
 
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.5 });[span_26](start_span)[span_26](end_span)
+                    // Smooth zoom out to frame the entire interconnected grid network
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });[span_26](start_span)[span_26](end_span)
 
-                    // Draw Connected Network Web for Grand Finale Focus Group
+                    // GRAND FINALE: Generate bright neon interconnected path lines layout
                     for (let i = 0; i < priorityTourQueue.length; i++) {
                         for (let j = i + 1; j < Math.min(i + 5, priorityTourQueue.length); j++) {
                             let webLine = L.polyline([
@@ -886,6 +936,7 @@
                         }
                     }
 
+                    // Network remains beautifully visible for 2 seconds before clean reset
                     setTimeout(() => {
                         finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
                         finalGlobalNetworkLines = [];
@@ -902,36 +953,36 @@
 
                 if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
 
-                // Glowing Neon Follower Track Line setup
+                // 3. CLEAN HIGH-PERFORMANCE SOLID NEON INTER-STATION TRACK PATH
                 currentFlightPathLine = L.polyline([startCoords, endCoords], {
                     color: '#00f5d4',
                     weight: 3,
-                    opacity: 0.8
+                    opacity: 0.85
                 }).addTo(map);
 
-                // 1.5x Flow Speed: Pan transitions set cleanly to 2.2s flat[span_31](start_span)[span_31](end_span)
-                map.flyTo(endCoords, currentTargetStop.zoom, {[span_32](start_span)[span_32](end_span)
+                // Smooth 1.5x Camera Panning Flow - Duration 2.2 seconds flat
+                map.flyTo(endCoords, currentTargetStop.zoom, {[span_31](start_span)[span_31](end_span)
                     animate: true,
                     duration: 2.2
-                });[span_33](start_span)[span_33](end_span)
+                });[span_32](start_span)[span_32](end_span)
 
-                map.once('moveend', function() {[span_34](start_span)[span_34](end_span)
-                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_35](start_span)[span_35](end_span)
-                    if (activeTargetMarker) {[span_36](start_span)[span_36](end_span)
-                        setTimeout(() => {[span_37](start_span)[span_37](end_span)
-                            activeTargetMarker.openPopup();[span_38](start_span)[span_38](end_span)
-                            currentStopIndex++;[span_39](start_span)[span_39](end_span)
-                            setTimeout(executeNextPriorityStop, 2000);[span_40](start_span)[span_40](end_span)
-                        }, 200);[span_41](start_span)[span_41](end_span)
-                    } else {[span_42](start_span)[span_42](end_span)
-                        currentStopIndex++;[span_43](start_span)[span_43](end_span)
-                        executeNextPriorityStop();[span_44](start_span)[span_44](end_span)
-                    }[span_45](start_span)[span_45](end_span)
-                });[span_46](start_span)[span_46](end_span)
-            }[span_47](start_span)[span_47](end_span)
+                map.once('moveend', function() {[span_33](start_span)[span_33](end_span)
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_34](start_span)[span_34](end_span)
+                    if (activeTargetMarker) {[span_35](start_span)[span_35](end_span)
+                        setTimeout(() => {[span_36](start_span)[span_36](end_span)
+                            activeTargetMarker.openPopup();[span_37](start_span)[span_37](end_span)
+                            currentStopIndex++;[span_38](start_span)[span_38](end_span)
+                            setTimeout(executeNextPriorityStop, 2000);[span_39](start_span)[span_39](end_span)
+                        }, 200);[span_40](start_span)[span_40](end_span)
+                    } else {[span_41](start_span)[span_41](end_span)
+                        currentStopIndex++;[span_42](start_span)[span_42](end_span)
+                        executeNextPriorityStop();[span_43](start_span)[span_43](end_span)
+                    }[span_44](start_span)[span_44](end_span)
+                });[span_45](start_span)[span_45](end_span)
+            }[span_46](start_span)[span_46](end_span)
 
-            executeNextPriorityStop();[span_48](start_span)[span_48](end_span)
-        });[span_49](start_span)[span_49](end_span)
+            executeNextPriorityStop();[span_47](start_span)[span_47](end_span)
+        });[span_48](start_span)[span_48](end_span)
 
       });
     </script>
