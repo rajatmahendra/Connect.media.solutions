@@ -7,6 +7,8 @@
     
     <!-- Leaflet Map Engine Style Sheet Sheet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- FontAwesome Library for Animated Flight Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         :root {
@@ -367,6 +369,20 @@
             border: 1px solid #fff;
         }
 
+        /* Flight Icon Neon Glow Styling Rules */
+        .flight-plane-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flight-plane-icon {
+            color: var(--accent-cyan) !important;
+            font-size: 22px !important;
+            text-shadow: 0 0 12px var(--accent-cyan), 0 0 20px rgba(0, 245, 212, 0.8);
+            transform: rotate(45deg); /* Angles plane forward */
+            transition: transform 0.2s ease;
+        }
+
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
@@ -502,7 +518,7 @@
         <!-- FORCED DISPLAY FOR AUTOMATED TOUR CONTROL BUTTON -->
         <div style="text-align: center !important; margin-bottom: 25px !important; display: block !important; position: relative !important; z-index: 999 !important;">
             <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8) !important; color: #090d16 !important; padding: 14px 32px !important; border: none !important; border-radius: 6px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; cursor: pointer !important; box-shadow: var(--neon-glow) !important; display: inline-block !important; font-size: 1rem !important;">
-                🎬 Start Cinematic Tour
+                ✈️ Start 2x Fast Flight Tour
             </button>
         </div>
         
@@ -707,7 +723,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Installation Vectors Across Varanasi
+        // Fully Integrated Database of 36 Installation Vectors Across Varanasi[span_0](start_span)[span_0](end_span)
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -754,44 +770,44 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
-        // Adjusted zoom perspective
+        // Frame initialization calibrated cleanly to capture both Airport and city clusters together[span_1](start_span)[span_1](end_span)
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
           tap: true
-        }).setView([25.3350, 82.9500], 11);
+        }).setView([25.3350, 82.9500], 11);[span_2](start_span)[span_2](end_span)
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
           maxZoom: 20
         }).addTo(map);
 
-        const markerMap = {};
+        const markerMap = {};[span_3](start_span)[span_3](end_span)
 
-        installations.forEach(function(project) {
+        installations.forEach(function(project) {[span_4](start_span)[span_4](end_span)
           
           let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
 
-          if (project.cat === "fine") {
+          if (project.cat === "fine") {[span_5](start_span)[span_5](end_span)
              pinColor = "#25D366"; 
              glowColor = "rgba(37, 211, 102, 0.6)";
              statusBadge = "Fine Pitch HD Indoor";
-          } else if (project.cat === "p3alone") {
+          } else if (project.cat === "p3alone") {[span_6](start_span)[span_6](end_span)
              pinColor = "#00b4d8"; 
              glowColor = "rgba(0, 180, 216, 0.6)";
              statusBadge = "P3 High-Contrast Outdoor";
-          } else if (project.cat === "billboard") {
+          } else if (project.cat === "billboard") {[span_7](start_span)[span_7](end_span)
              pinColor = "#9b5de5"; 
              glowColor = "rgba(155, 93, 229, 0.6)";
              statusBadge = "High-Impact Billboard";
-          } else if (project.cat === "mixed") {
+          } else if (project.cat === "mixed") {[span_8](start_span)[span_8](end_span)
              pinColor = "#ff007f"; 
              glowColor = "rgba(255, 0, 127, 0.6)";
              statusBadge = "Mixed Infrastructure Complex";
           }
 
-          const dynamicNeonPin = L.divIcon({
+          const dynamicNeonPin = L.divIcon({[span_9](start_span)[span_9](end_span)
             className: 'cms-live-pin',
             html: `
               <div style="
@@ -820,62 +836,151 @@
             </div>
           `;
 
-          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })
+          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })[span_10](start_span)[span_10](end_span)
             .addTo(map)
             .bindPopup(popupMarkup);
             
-          markerMap[project.lat.toString()] = marker;
+          markerMap[project.lat.toString()] = marker;[span_11](start_span)[span_11](end_span)
         });
 
-        // ── AUTOMATED PORTRAIT-READY CINEMATIC TOUR ENGINE ──
-        document.getElementById('start-tour-btn').addEventListener('click', function() {
-            const tourStops = [
-              { lat: 25.448594, lng: 82.857222, zoom: 15 }, 
-              { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
-              { lat: 25.312580, lng: 82.988833, zoom: 16 }, 
-              { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
-              { lat: 25.311693, lng: 83.010303, zoom: 16 }  
+        // Create HTML Marker element for Airplane Marker
+        const planeIcon = L.divIcon({
+            className: 'flight-plane-container',
+            html: '<i class="fa-solid fa-plane flight-plane-icon"></i>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+        
+        let activePlaneMarker = null;
+        let currentFlightPathLine = null;
+
+        // ── 2x FAST PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──[span_12](start_span)[span_12](end_span)
+        document.getElementById('start-tour-btn').addEventListener('click', function() {[span_13](start_span)[span_13](end_span)
+            
+            // Priority Re-ordered List (1. Quality, 2. Quantity, 3. Others)[span_14](start_span)[span_14](end_span)
+            const priorityTourQueue = [[span_15](start_span)[span_15](end_span)
+              // PHASE 1: HIGH QUALITY PREMIUM SCREENS (Fine Pitch & Ultra HD Green Core Nodes)[span_16](start_span)[span_16](end_span)
+              { lat: 25.448594, lng: 82.857222, zoom: 16 }, // Dhanuka Varanasi Airport[span_17](start_span)[span_17](end_span)
+              { lat: 25.448627, lng: 82.856050, zoom: 16 }, // Suvarshini Varanasi Airport[span_18](start_span)[span_18](end_span)
+              { lat: 25.332612, lng: 82.980415, zoom: 16 }, // Hotel Ramada Plaza BY Wyndham JHV[span_19](start_span)[span_19](end_span)
+              { lat: 25.305376, lng: 82.996097, zoom: 16 }, // Shri Rajbandhu Sweets Kamaksha[span_20](start_span)[span_20](end_span)
+              { lat: 25.324775, lng: 82.992768, zoom: 16 }, // Sun Sutra Club Vinayak Plaza[span_21](start_span)[span_21](end_span)
+              { lat: 25.306122, lng: 83.001422, zoom: 16 }, // Pardaha Saree Showroom Luxa Road[span_22](start_span)[span_22](end_span)
+
+              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE (Mass Deployments & Complex Pink Matrix Hubs)[span_23](start_span)[span_23](end_span)
+              { lat: 25.311693, lng: 83.010303, zoom: 16 }, // Total of 17 Screens at Kashi Vishwanath Temple Premises[span_24](start_span)[span_24](end_span)
+              { lat: 25.306571, lng: 82.990765, zoom: 16 }, // Narayan Das Sarraf Jewellers Rathyatra[span_25](start_span)[span_25](end_span)
+              { lat: 25.328263, lng: 82.995396, zoom: 16 }, // Bati Chokha Auditorium Varanasi[span_26](start_span)[span_26](end_span)
+              { lat: 25.324712, lng: 82.992566, zoom: 16 }, // Duchie Duchie Vinayak Plaza[span_27](start_span)[span_27](end_span)
+              { lat: 25.309482, lng: 82.989255, zoom: 16 }, // IP Mall Sigra[span_28](start_span)[span_28](end_span)
+
+              // PHASE 3: OTHER COMMERCIAL ASSETS (Standalone P3 Blue Nodes & Large Scale Billboard Purple Vectors)[span_29](start_span)[span_29](end_span)
+              { lat: 25.307810, lng: 82.990744, zoom: 16 }, // Navratan Jewellers Rathyatra[span_30](start_span)[span_30](end_span)
+              { lat: 25.289708, lng: 82.999333, zoom: 16 }, // Narayan Das Sarraf Jewellers Bhelupur[span_31](start_span)[span_31](end_span)
+              { lat: 25.350037, lng: 82.977964, zoom: 16 }, // The Raymonds Shop Ordaly Bazar[span_32](start_span)[span_32](end_span)
+              { lat: 25.349371, lng: 82.981674, zoom: 16 }, // Dhanuka Ordaly Bazar[span_33](start_span)[span_33](end_span)
+              { lat: 25.312580, lng: 82.988833, zoom: 16 }  // Sumagal Jewellers Sigra[span_34](start_span)[span_34](end_span)
             ];
 
-            let currentStop = 0;
-            const btnElement = document.getElementById('start-tour-btn');
+            let currentStopIndex = 0;[span_35](start_span)[span_35](end_span)
+            const btnElement = document.getElementById('start-tour-btn');[span_36](start_span)[span_36](end_span)
             
-            btnElement.innerText = "🔄 Tour In Progress...";
-            btnElement.style.opacity = "0.7";
-            map.closePopup();
+            btnElement.innerText = "⚡ 2x Flight Tour Active...";[span_37](start_span)[span_37](end_span)
+            btnElement.style.opacity = "0.7";[span_38](start_span)[span_38](end_span)
+            
+            // Cleanup existing artifacts if tour triggered again
+            if (activePlaneMarker) { map.removeLayer(activePlaneMarker); }
+            if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
+            map.closePopup();[span_39](start_span)[span_39](end_span)
 
-            function runTourSequence() {
-                if (currentStop >= tourStops.length) {
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 3.5 });
-                    btnElement.innerText = "🎬 Start Cinematic Tour";
-                    btnElement.style.opacity = "1";
-                    return;
+            function executeNextPriorityStop() {[span_40](start_span)[span_40](end_span)
+                if (currentStopIndex >= priorityTourQueue.length) {[span_41](start_span)[span_41](end_span)
+                    // Clean flight assets at final landing stage
+                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+                    
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });[span_42](start_span)[span_42](end_span)
+                    btnElement.innerText = "✈️ Start 2x Fast Flight Tour";[span_43](start_span)[span_43](end_span)
+                    btnElement.style.opacity = "1";[span_44](start_span)[span_44](end_span)
+                    return;[span_45](start_span)[span_45](end_span)
                 }
 
-                const activeStop = tourStops[currentStop];
-                
-                map.flyTo([activeStop.lat, activeStop.lng], activeStop.zoom, {
-                    animate: true,
-                    duration: 3.5 
-                });
+                const currentTargetStop = priorityTourQueue[currentStopIndex];[span_46](start_span)[span_46](end_span)
+                const startCoords = currentStopIndex === 0 ? [25.3350, 82.9500] : [priorityTourQueue[currentStopIndex - 1].lat, priorityTourQueue[currentStopIndex - 1].lng];
+                const endCoords = [currentTargetStop.lat, currentTargetStop.lng];
 
-                map.once('moveend', function() {
-                    const targetMarker = markerMap[activeStop.lat.toString()];
-                    if (targetMarker) {
-                        setTimeout(() => {
-                            targetMarker.openPopup();
-                            currentStop++;
-                            setTimeout(runTourSequence, 3500); 
-                        }, 400);
+                // Remove previous vector dashed line before drawing new flight route
+                if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
+
+                // Create a neon cyan dashed flight track layer between vectors
+                currentFlightPathLine = L.polyline([startCoords, endCoords], {
+                    color: 'var(--accent-cyan)',
+                    weight: 3,
+                    dashArray: '8, 8',
+                    opacity: 0.8
+                }).addTo(map);
+
+                // Setup active plane positioning marker layout
+                if (!activePlaneMarker) {
+                    activePlaneMarker = L.marker(startCoords, { icon: planeIcon }).addTo(map);
+                } else {
+                    activePlaneMarker.setLatLng(startCoords);
+                }
+
+                // Dynamic calculations to auto-rotate plane asset icon nose vector towards target heading
+                const dLng = endCoords[1] - startCoords[1];
+                const dLat = endCoords[0] - startCoords[0];
+                const headingAngle = Math.atan2(dLng, dLat) * (180 / Math.PI);
+                const planeDomNode = document.querySelector('.flight-plane-icon');
+                if (planeDomNode) {
+                    planeDomNode.style.transform = `rotate(${headingAngle - 45}deg)`;
+                }
+
+                // Smoothly animate plane positioning marker path coordinates along the vector route line
+                let progressInterval = null;
+                let frameStep = 0;
+                const totalFrames = 30; // Handles transition framerate distribution loops
+
+                progressInterval = setInterval(() => {
+                    frameStep++;
+                    if (frameStep <= totalFrames) {
+                        const ratio = frameStep / totalFrames;
+                        const currentLat = startCoords[0] + (endCoords[0] - startCoords[0]) * ratio;
+                        const currentLng = startCoords[1] + (endCoords[1] - startCoords[1]) * ratio;
+                        activePlaneMarker.setLatLng([currentLat, currentLng]);
                     } else {
-                        currentStop++;
-                        runTourSequence();
+                        clearInterval(progressInterval);
                     }
-                });
-            }
+                }, 1700 / totalFrames); // Synchronized directly with 1.7s flight canvas movement time block
 
-            runTourSequence();
-        });
+                // 2x Fast Camera Sweep: Flies camera to terminal vector coordinates in exactly 1.7 seconds[span_47](start_span)[span_47](end_span)
+                map.flyTo(endCoords, currentTargetStop.zoom, {[span_48](start_span)[span_48](end_span)
+                    animate: true,[span_49](start_span)[span_49](end_span)
+                    duration: 1.7[span_50](start_span)[span_50](end_span)
+                });[span_51](start_span)[span_51](end_span)
+
+                map.once('moveend', function() {[span_52](start_span)[span_52](end_span)
+                    // Clean tracking components instantly upon reaching node destination
+                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_53](start_span)[span_53](end_span)
+                    if (activeTargetMarker) {[span_54](start_span)[span_54](end_span)
+                        setTimeout(() => {[span_55](start_span)[span_55](end_span)
+                            activeTargetMarker.openPopup();[span_56](start_span)[span_56](end_span)
+                            currentStopIndex++;[span_57](start_span)[span_57](end_span)
+                            // 2x Fast Wait Time Window: Pauses for exactly 2 seconds before engaging next vector route chain loop[span_58](start_span)[span_58](end_span)
+                            setTimeout(executeNextPriorityStop, 2000);[span_59](start_span)[span_59](end_span)
+                        }, 200);[span_60](start_span)[span_60](end_span)
+                    } else {[span_61](start_span)[span_61](end_span)
+                        currentStopIndex++;[span_62](start_span)[span_62](end_span)
+                        executeNextPriorityStop();[span_63](start_span)[span_63](end_span)
+                    }[span_64](start_span)[span_64](end_span)
+                });[span_65](start_span)[span_65](end_span)
+            }[span_66](start_span)[span_66](end_span)
+
+            executeNextPriorityStop();[span_67](start_span)[span_67](end_span)
+        });[span_68](start_span)[span_68](end_span)
 
       });
     </script>
