@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Media Solutions | Next-Gen LED Video Walls</title>
     
-    <!-- Leaflet Map Engine Style Sheet Sheet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         :root {
@@ -367,6 +367,21 @@
             border: 1px solid #fff;
         }
 
+        /* Flight Icon System - Dynamic Rotation & Smooth Translation */
+        .flight-plane-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999 !important;
+        }
+        .flight-plane-icon {
+            color: var(--accent-cyan) !important;
+            font-size: 26px !important;
+            text-shadow: 0 0 12px var(--accent-cyan), 0 0 25px rgba(0, 245, 212, 0.9);
+            display: inline-block !important;
+            transform-origin: center center;
+        }
+
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
@@ -424,7 +439,7 @@
             </div>
             <div>
                 <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Who We Are</h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; mb: 1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
                 <ul class="list-style" style="margin-top: 1.5rem;">
                     <li><strong>Robust Panel Assemblies</strong> Built with long lifecycle resilience to thrive continuously in demanding operations.</li>
                     <li><strong>Graphic Superiority</strong> Every deployment is calibrated carefully to achieve bright output performance metrics.</li>
@@ -440,54 +455,10 @@
                 <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
                 <div class="card"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
             </div>
-            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
+            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner" />
         </div>
     </section>
 
-    <div class="tech-wrapper" id="technology">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="section-title">Precision Hardware Specifications</h2>
-            <div class="grid-3">
-                <div class="card cyan-accent">
-                    <h3>High Pixel Density</h3>
-                    <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Adaptive Contrast</h3>
-                    <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Smart Energy Integration</h3>
-                    <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="applications">
-        <h2 class="section-title">Versatile Architecture Use</h2>
-        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <img src="pic6.jpg" alt="Corporate Environment Assembly">
-                <h3>Corporate</h3>
-                <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
-            </div>
-            <div class="card">
-                <img src="pic7.jpg" alt="Retail Front Display Setup">
-                <h3>Commercial</h3>
-                <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
-            </div>
-            <div class="card">
-                <img src="pic8.jpg" alt="Large Area Arena Panel Display">
-                <h3>Public Spaces</h3>
-                <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── INTERACTIVE PROJECTS MAP SECTION ── -->
     <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
         
@@ -499,17 +470,15 @@
             <div class="legend-item"><span class="legend-dot" style="background-color: #ff007f; box-shadow: 0 0 8px #ff007f;"></span> Mixed Complex Infrastructure</div>
         </div>
         
-        <!-- FORCED DISPLAY FOR AUTOMATED TOUR CONTROL BUTTON -->
         <div style="text-align: center !important; margin-bottom: 25px !important; display: block !important; position: relative !important; z-index: 999 !important;">
             <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8) !important; color: #090d16 !important; padding: 14px 32px !important; border: none !important; border-radius: 6px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; cursor: pointer !important; box-shadow: var(--neon-glow) !important; display: inline-block !important; font-size: 1rem !important;">
-                🎬 Start Cinematic Tour
+                🎬 Start Virtual Tour
             </button>
         </div>
         
         <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
     </section>
 
-    <!-- ── EXCLUSIVE PROJECT SHOWCASE GALLERY ── -->
     <section id="media-hub" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem;">
         <h2 class="section-title">On-Site Project Deployments</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
@@ -586,6 +555,49 @@
         </div>
     </section>
 
+    <div class="tech-wrapper" id="technology">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Precision Hardware Specifications</h2>
+            <div class="grid-3">
+                <div class="card cyan-accent">
+                    <h3>High Pixel Density</h3>
+                    <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
+                </div>
+                <div class="card cyan-accent">
+                    <h3>Adaptive Contrast</h3>
+                    <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
+                </div>
+                <div class="card cyan-accent">
+                    <h3>Smart Energy Integration</h3>
+                    <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="applications">
+        <h2 class="section-title">Versatile Architecture Use</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <img src="pic6.jpg" alt="Corporate Environment Assembly" />
+                <h3>Corporate</h3>
+                <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
+            </div>
+            <div class="card">
+                <img src="pic7.jpg" alt="Retail Front Display Setup" />
+                <h3>Commercial</h3>
+                <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
+            </div>
+            <div class="card">
+                <img src="pic8.jpg" alt="Large Area Arena Panel Display" />
+                <h3>Public Spaces</h3>
+                <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="workflow" class="split-layout">
         <div>
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Strategic Project Lifecycle</h2>
@@ -596,7 +608,7 @@
             </ul>
         </div>
         <div>
-            <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" style="margin-top:0;">
+            <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" />
         </div>
     </section>
 
@@ -611,14 +623,14 @@
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
             <div>
-                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
+                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;" />
             </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="contact-box">
-            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner">
+            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner" />
 
             <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
             <p style="color: var(--text-muted);">Ready to establish an iconic visual benchmark at your location? Fill out your parameters below.</p>
@@ -702,12 +714,11 @@
         <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
     </footer>
 
-    <!-- ── LEAFLET CORE SCRIPT ENGINE AND MAP INSTANTIATION LOGIC ── -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Installation Vectors Across Varanasi
+        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -754,21 +765,18 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
-        // Adjusted zoom perspective
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
           tap: true
         }).setView([25.3350, 82.9500], 11);
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
           maxZoom: 20
         }).addTo(map);
 
         const markerMap = {};
 
         installations.forEach(function(project) {
-          
           let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
@@ -793,17 +801,7 @@
 
           const dynamicNeonPin = L.divIcon({
             className: 'cms-live-pin',
-            html: `
-              <div style="
-                position: relative;
-                width: 14px;
-                height: 14px;
-                background-color: ${pinColor};
-                border: 2px solid #ffffff;
-                border-radius: 50%;
-                box-shadow: 0 0 10px ${pinColor}, 0 0 18px ${glowColor};
-              "></div>
-            `,
+            html: `<div style="position: relative; width: 14px; height: 14px; background-color: ${pinColor}; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 10px ${pinColor}, 0 0 18px ${glowColor};"></div>`,
             iconSize: [14, 14],
             iconAnchor: [7, 7],
             popupAnchor: [0, -10]
@@ -827,54 +825,165 @@
           markerMap[project.lat.toString()] = marker;
         });
 
-        // ── AUTOMATED PORTRAIT-READY CINEMATIC TOUR ENGINE ──
+        const planeIcon = L.divIcon({
+            className: 'flight-plane-container',
+            html: '<i class="fa-solid fa-plane flight-plane-icon"></i>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+        
+        let activePlaneMarker = null;
+        let currentFlightPathLine = null;
+        let finalGlobalNetworkLines = []; // Array to store grand finale web lines
+
+        // ── 1.5x SPEED PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──
         document.getElementById('start-tour-btn').addEventListener('click', function() {
-            const tourStops = [
-              { lat: 25.448594, lng: 82.857222, zoom: 15 }, 
+            
+            const priorityTourQueue = [
+              // PHASE 1: HIGH QUALITY PREMIUM SCREENS
+              { lat: 25.448594, lng: 82.857222, zoom: 16 }, 
+              { lat: 25.448627, lng: 82.856050, zoom: 16 }, 
+              { lat: 25.332612, lng: 82.980415, zoom: 16 }, 
+              { lat: 25.305376, lng: 82.996097, zoom: 16 }, 
+              { lat: 25.324775, lng: 82.992768, zoom: 16 }, 
+              { lat: 25.306122, lng: 83.001422, zoom: 16 }, 
+
+              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE
+              { lat: 25.311693, lng: 83.010303, zoom: 16 }, 
               { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
-              { lat: 25.312580, lng: 82.988833, zoom: 16 }, 
+              { lat: 25.328263, lng: 82.995396, zoom: 16 }, 
+              { lat: 25.324712, lng: 82.992566, zoom: 16 }, 
+              { lat: 25.309482, lng: 82.989255, zoom: 16 }, 
+
+              // PHASE 3: OTHER COMMERCIAL ASSETS
+              { lat: 25.307810, lng: 82.990744, zoom: 16 }, 
+              { lat: 25.289708, lng: 82.999333, zoom: 16 }, 
               { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
-              { lat: 25.311693, lng: 83.010303, zoom: 16 }  
+              { lat: 25.349371, lng: 82.981674, zoom: 16 }, 
+              { lat: 25.312580, lng: 82.988833, zoom: 16 }  
             ];
 
-            let currentStop = 0;
+            let currentStopIndex = 0;
             const btnElement = document.getElementById('start-tour-btn');
             
-            btnElement.innerText = "🔄 Tour In Progress...";
+            btnElement.innerText = "🔄 Virtual Tour Active...";
             btnElement.style.opacity = "0.7";
+            
+            // Clean up old artifacts before starting
+            if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+            if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+            finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
+            finalGlobalNetworkLines = [];
             map.closePopup();
 
-            function runTourSequence() {
-                if (currentStop >= tourStops.length) {
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 3.5 });
-                    btnElement.innerText = "🎬 Start Cinematic Tour";
-                    btnElement.style.opacity = "1";
+            function executeNextPriorityStop() {
+                if (currentStopIndex >= priorityTourQueue.length) {
+                    // GRAND FINALE: Clean flight assets and spin up the complete interconnected network grid
+                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+                    map.closePopup();
+
+                    // Zoom out cleanly to birds-eye overview to capture the full grid shape
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.5 });
+
+                    // Generate interconnected cross-lines link matrix across all major hotspots
+                    for (let i = 0; i < priorityTourQueue.length; i++) {
+                        for (let j = i + 1; j < Math.min(i + 5, priorityTourQueue.length); j++) {
+                            let webLine = L.polyline([
+                                [priorityTourQueue[i].lat, priorityTourQueue[i].lng],
+                                [priorityTourQueue[j].lat, priorityTourQueue[j].lng]
+                            ], {
+                                color: '#00f5d4',
+                                weight: 1.5,
+                                opacity: 0.5,
+                                dashArray: '4, 4'
+                            }).addTo(map);
+                            finalGlobalNetworkLines.push(webLine);
+                        }
+                    }
+
+                    // Leave full interconnected network live for exactly 2 seconds before resetting canvas completely
+                    setTimeout(() => {
+                        finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
+                        finalGlobalNetworkLines = [];
+                        btnElement.innerText = "🎬 Start Virtual Tour";
+                        btnElement.style.opacity = "1";
+                    }, 2000);
+
                     return;
                 }
 
-                const activeStop = tourStops[currentStop];
+                const currentTargetStop = priorityTourQueue[currentStopIndex];
+                const startCoords = currentStopIndex === 0 ? [25.3350, 82.9500] : [priorityTourQueue[currentStopIndex - 1].lat, priorityTourQueue[currentStopIndex - 1].lng];
+                const endCoords = [currentTargetStop.lat, currentTargetStop.lng];
+
+                if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
+
+                currentFlightPathLine = L.polyline([startCoords, endCoords], {
+                    color: 'var(--accent-cyan)',
+                    weight: 3,
+                    dashArray: '8, 8',
+                    opacity: 0.8
+                }).addTo(map);
+
+                if (!activePlaneMarker) {
+                    activePlaneMarker = L.marker(startCoords, { icon: planeIcon }).addTo(map);
+                } else {
+                    activePlaneMarker.setLatLng(startCoords);
+                }
+
+                const dLng = endCoords[1] - startCoords[1];
+                const dLat = endCoords[0] - startCoords[0];
+                const headingAngle = Math.atan2(dLng, dLat) * (180 / Math.PI);
                 
-                map.flyTo([activeStop.lat, activeStop.lng], activeStop.zoom, {
+                setTimeout(() => {
+                    const planeDomNode = document.querySelector('.flight-plane-icon');
+                    if (planeDomNode) {
+                        planeDomNode.style.transform = `rotate(${headingAngle - 45}deg)`;
+                    }
+                }, 50);
+
+                let progressInterval = null;
+                let frameStep = 0;
+                const totalFrames = 40; 
+
+                // Calibrated to match the new 1.5x duration value (2200ms)
+                progressInterval = setInterval(() => {
+                    frameStep++;
+                    if (frameStep <= totalFrames) {
+                        const ratio = frameStep / totalFrames;
+                        const currentLat = startCoords[0] + (endCoords[0] - startCoords[0]) * ratio;
+                        const currentLng = startCoords[1] + (endCoords[1] - startCoords[1]) * ratio;
+                        if (activePlaneMarker) {
+                            activePlaneMarker.setLatLng([currentLat, currentLng]);
+                        }
+                    } else {
+                        clearInterval(progressInterval);
+                    }
+                }, 2200 / totalFrames); 
+
+                // 1.5x Smooth Flow Speed: Pan camera for exactly 2.2 seconds flat
+                map.flyTo(endCoords, currentTargetStop.zoom, {
                     animate: true,
-                    duration: 3.5 
+                    duration: 2.2
                 });
 
                 map.once('moveend', function() {
-                    const targetMarker = markerMap[activeStop.lat.toString()];
-                    if (targetMarker) {
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];
+                    if (activeTargetMarker) {
                         setTimeout(() => {
-                            targetMarker.openPopup();
-                            currentStop++;
-                            setTimeout(runTourSequence, 3500); 
-                        }, 400);
+                            activeTargetMarker.openPopup();
+                            currentStopIndex++;
+                            setTimeout(executeNextPriorityStop, 2000);
+                        }, 200);
                     } else {
-                        currentStop++;
-                        runTourSequence();
+                        currentStopIndex++;
+                        executeNextPriorityStop();
                     }
                 });
             }
 
-            runTourSequence();
+            executeNextPriorityStop();
         });
 
       });
