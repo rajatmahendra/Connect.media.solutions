@@ -344,20 +344,19 @@
             color: #55657e;
         }
 
-        /* Interactive Legend Styling Rules */
         .map-legend-box {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             margin: -2rem auto 2.5rem auto;
-            max-width: 800px;
+            max-width: 950px;
         }
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: 600;
         }
@@ -372,7 +371,7 @@
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
             nav { display: none; }
-            .map-legend-box { gap: 1rem; }
+            .map-legend-box { gap: 0.8rem; justify-content: flex-start; padding: 0 10px; }
         }
     </style>
 </head>
@@ -488,19 +487,19 @@
         </div>
     </section>
 
-    <!-- ── EXCLUSIVE INTERACTIVE PROJECTS MAP SECTION (WITH COLOUR CODING & SPECS) ── -->
+    <!-- ── INTERACTIVE PROJECTS MAP SECTION ── -->
     <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
         
-        <!-- Highly Informative Interactive Legend Panel -->
+        <!-- Updated Legend to include the New P3 layer style -->
         <div class="map-legend-box">
-            <div class="legend-item"><span class="legend-dot" style="background-color: #25D366; box-shadow: 0 0 8px #25D366;"></span> Fine Pitch HD Display (P2 / P2.5)</div>
-            <div class="legend-item"><span class="legend-dot" style="background-color: #00f5d4; box-shadow: 0 0 8px #00f5d4;"></span> Premium Standard Core (P3 / P4)</div>
-            <div class="legend-item"><span class="legend-dot" style="background-color: #9b5de5; box-shadow: 0 0 8px #9b5de5;"></span> High-Impact Billboard Display (P6 / P10)</div>
+            <div class="legend-item"><span class="legend-dot" style="background-color: #25D366; box-shadow: 0 0 8px #25D366;"></span> Fine Pitch HD (P1.8 / P2 / P2.5 Indoor)</div>
+            <div class="legend-item"><span class="legend-dot" style="background-color: #00b4d8; box-shadow: 0 0 8px #00b4d8;"></span> High-Contrast P3 Outdoor</div>
+            <div class="legend-item"><span class="legend-dot" style="background-color: #00f5d4; box-shadow: 0 0 8px #00f5d4;"></span> Standard Core P4 Outdoor</div>
+            <div class="legend-item"><span class="legend-dot" style="background-color: #9b5de5; box-shadow: 0 0 8px #9b5de5;"></span> Large Billboard (P6 / P10)</div>
             <div class="legend-item"><span class="legend-dot" style="background-color: #ff007f; box-shadow: 0 0 8px #ff007f;"></span> Mixed Complex Infrastructure</div>
         </div>
         
-        <!-- Live Map Canvas Box -->
         <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
     </section>
 
@@ -509,9 +508,7 @@
         <h2 class="section-title">On-Site Project Deployments</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
         
-        <!-- 4 Landscape Project Videos Grid Layout -->
         <div class="video-landscape-grid">
-            <!-- Video Card 1 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
                     <iframe src="https://www.youtube.com/embed/pRdR85v5zwY" title="p2 5 high quality led wall installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -520,7 +517,6 @@
                 <p style="color: var(--text-muted);">p2.5 indoor installation in auditorium</p>
             </div>
 
-            <!-- Video Card 2 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
                     <iframe src="https://www.youtube.com/embed/6OoBgYqe5_M" title="p2 5 high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -529,7 +525,6 @@
                 <p style="color: var(--text-muted);">p2.5 indoor Led wall installation in banquet hall</p>
             </div>
 
-            <!-- Video Card 3 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
                     <iframe src="https://www.youtube.com/embed/IOEu9lSyuWc" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -538,7 +533,6 @@
                 <p style="color: var(--text-muted);">mugalsarai varanasi</p>
             </div>
 
-            <!-- Video Card 4 -->
             <div class="card cyan-accent">
                 <div class="embed-container-landscape">
                     <iframe src="https://www.youtube.com/embed/99g2kXDNQuw" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -551,9 +545,7 @@
         <h2 class="section-title">Live Installation Reels</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Real on-site smartphone snapshots of our hardware structural metrics and panel alignment checks.</p>
 
-        <!-- 4 Vertical Shorts Layout Grid -->
         <div class="video-shorts-grid">
-            <!-- Shorts 1 -->
             <div class="card">
                 <div class="embed-container-shorts">
                     <iframe src="https://www.youtube.com/embed/KvQ8KYIHzuU" title="p3 outdoor high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -562,7 +554,6 @@
                 <p style="color: var(--text-muted); font-size: 0.9rem;">every Dhanuka showroom in varanasi has our screens only from p1.8 to p4</p>
             </div>
 
-            <!-- Shorts 2 -->
             <div class="card">
                 <div class="embed-container-shorts">
                     <iframe src="https://www.youtube.com/embed/cresWg6C1Uw" title="p4 outdoor high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -571,7 +562,6 @@
                 <p style="color: var(--text-muted); font-size: 0.9rem;">the fabulous divine rajshahi mansion is lighting up with our p3 pro screen</p>
             </div>
 
-            <!-- Shorts 3 -->
             <div class="card">
                 <div class="embed-container-shorts">
                     <iframe src="https://www.youtube.com/embed/LGibFl4Ug3I" title="p4 outdoor high quality installation at Duchie Duchie varanasi showroom" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -580,7 +570,6 @@
                 <p style="color: var(--text-muted); font-size: 0.9rem;">twin portrait p4 high quality screens in vinayak plaza varanasi</p>
             </div>
 
-            <!-- Shorts 4 -->
             <div class="card">
                 <div class="embed-container-shorts">
                     <iframe src="https://www.youtube.com/embed/wg4ipEqjVBI" title="narayan das sarraf varanasi p2.0 outdoor installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -631,7 +620,6 @@
             <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem 2rem; border-radius: 12px; max-width: 600px; margin: 3rem auto; text-align: left;">
                 <h3 style="font-size: 1.4rem; color: var(--accent-cyan); margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;">Get a Custom LED Video Wall Quote</h3>
                 
-                <!-- Form Fix Added Back Securely -->
                 <form id="leadForm" onsubmit="sendToWhatsApp(event)">
                     <div style="margin-bottom: 1.2rem;">
                         <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Your Name *</label>
@@ -653,7 +641,6 @@
                     </button>
                 </form>
 
-                <!-- FIXED JAVASCRIPT FUNCTION RESTORED -->
                 <script>
                     function sendToWhatsApp(event) {
                         event.preventDefault();
@@ -714,7 +701,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Highly Informative Color-Coded Database Injected with Precision Pixel Pitch Class Rules
+        // Exact 36 Coordinate Dataset Categorized precisely to isolate P3 standalone variants
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -724,54 +711,68 @@
           { title: "Navratan Jewellers Lahurabir", lat: 25.323299, lng: 83.000577, spec: "P4 Outdoor High-Brightness Signage", cat: "standard" },
           { title: "RR Gems and Jwells Lahurabir", lat: 25.323483, lng: 83.000554, spec: "P4 Outdoor Retail Display Integration", cat: "standard" },
           { title: "Swarnam Jewellers Rathyatra", lat: 25.307775, lng: 82.990946, spec: "P4 Outdoor High-Impact Commercial Wall", cat: "standard" },
-          { title: "Navratan Jewellers Rathyatra", lat: 25.307810, lng: 82.990744, spec: "P3 Outdoor Precision Showroom Panel", cat: "standard" },
+          { title: "Navratan Jewellers Rathyatra", lat: 25.307810, lng: 82.990744, spec: "P3 Outdoor Precision Showroom Panel", cat: "p3alone" }, // Isolated P3
           { title: "Shri Rajbandhu Sweets Kamaksha", lat: 25.305376, lng: 82.996097, spec: "P2.5 Indoor Ultra-HD Seamless Display", cat: "fine" },
           { title: "Vandana Fashion Ravindrapuri", lat: 25.293844, lng: 83.002282, spec: "P4 Outdoor Premium Signage Interface", cat: "standard" },
           { title: "4D Marketing Screen Ravidas Gate BHU", lat: 25.282433, lng: 83.002966, spec: "P4 Outdoor Traffic Corridor Billboard", cat: "standard" },
-          { title: "Narayan Das Sarraf Jewellers Bhelupur", lat: 25.289708, lng: 82.999333, spec: "P3 Outdoor High-Brightness Brand Signage", cat: "standard" },
+          { title: "Narayan Das Sarraf Jewellers Bhelupur", lat: 25.289708, lng: 82.999333, spec: "P3 Outdoor High-Brightness Brand Signage", cat: "p3alone" }, // Isolated P3
           { title: "Narayan Das Sarraf Jewellers Chitaipur", lat: 25.261716, lng: 82.964009, spec: "P4 Outdoor Exterior Structural Wall", cat: "standard" },
           { title: "Darshani Silks DLW", lat: 25.288348, lng: 82.969488, spec: "P4 Outdoor Elite Textile Showroom Display", cat: "standard" },
-          { title: "Dhanuka Hotel Sankalp Mehmoorganj", lat: 25.304813, lng: 82.981395, spec: "P3 Outdoor Premium Hospitality Panel Layout", cat: "standard" },
-          { title: "Dhanuka Mehmoorganj", lat: 25.305828, lng: 82.981357, spec: "P3 Outdoor High-Definition Commercial Screen", cat: "standard" },
+          { title: "Dhanuka Hotel Sankalp Mehmoorganj", lat: 25.304813, lng: 82.981395, spec: "P3 Outdoor Premium Hospitality Panel Layout", cat: "p3alone" }, // Isolated P3
+          { title: "Dhanuka Mehmoorganj", lat: 25.305828, lng: 82.981357, spec: "P3 Outdoor High-Definition Commercial Screen", cat: "p3alone" }, // Isolated P3
           { title: "Dhanuka Rathyatra", lat: 25.306655, lng: 82.989692, spec: "P4 Outdoor Storefront High-Impact Display", cat: "standard" },
           { title: "Yasha Rathyatra", lat: 25.306794, lng: 82.989680, spec: "P4 Outdoor Weatherproof Signage Hub", cat: "standard" },
           { title: "BSKK Mehmoorganj", lat: 25.305334, lng: 82.981572, spec: "P4 Outdoor Infrastructure Media Panel", cat: "standard" },
           { title: "Vandana Silks Girjaghar", lat: 25.309358, lng: 83.005795, spec: "P4 Outdoor Premium Market Signage Node", cat: "standard" },
           { title: "Ekam Kashi Godolia", lat: 25.308954, lng: 83.006704, spec: "P4 Outdoor High-Traffic Retail Video Core", cat: "standard" },
-          { title: "Laxmi Saree Ghar Dashaswmedh Road", lat: 25.309025, lng: 83.008467, spec: "P3 Outdoor High-Contrast Visual Screen", cat: "standard" },
+          { title: "Laxmi Saree Ghar Dashaswmedh Road", lat: 25.309025, lng: 83.008467, spec: "P3 Outdoor High-Contrast Visual Screen", cat: "p3alone" }, // Isolated P3
           { title: "Rudraksh Valley Bansphatak", lat: 25.310743, lng: 83.007562, spec: "P4 Outdoor Heavy-Duty Video Network", cat: "standard" },
           { title: "Girja Sarees Bansphatak", lat: 25.311310, lng: 83.009286, spec: "P4 Outdoor Commercial Storefront Screen", cat: "standard" },
           { title: "Total of 17 Screens at Kashi Vishwanath Temple Premises", lat: 25.311693, lng: 83.010303, spec: "P4 Outdoor, P2.5 Outdoor & P3 Outdoor Complex Matrix Network", cat: "mixed" },
           { title: "Ellora Outdoor Advertising Nichibagh", lat: 25.315782, lng: 83.011692, spec: "P4 Outdoor Heavy-Duty Public Billboard", cat: "standard" },
           { title: "Hare Krishna Agrawal Jewellers Resham Katra", lat: 25.314744, lng: 83.010631, spec: "P4 Outdoor Detailed Showroom Facade Display", cat: "standard" },
           { title: "Bati Chokha Auditorium Varanasi", lat: 25.328263, lng: 82.995396, spec: "P2.5 Outdoor, P6 Outdoor & P4 Outdoor Tri-Layer Arena Core", cat: "mixed" },
-          { title: "Sun Sutra Club Vinayak Plaza", lat: 25.324775, lng: 82.992768, spec: "P2.5 Outdoor Premium Entertainment Venue Signage", cat: "fine" }
+          { title: "Sun Sutra Club Vinayak Plaza", lat: 25.324775, lng: 82.992768, spec: "P2.5 Outdoor Premium Entertainment Venue Signage", cat: "fine" },
+          
+          { title: "IP Mall Sigra", lat: 25.309482, lng: 82.989255, spec: "P4 Outdoor High-Brightness Commercial Panel Layout", cat: "standard" },
+          { title: "JHV Mall Nadesar", lat: 25.334185, lng: 82.981844, spec: "P3 Outdoor Elite Entertainment Venue Signage", cat: "p3alone" }, // Isolated P3
+          { title: "Pardaha Saree Showroom Luxa Road", lat: 25.306122, lng: 83.001422, spec: "P2.5 Indoor Ultra-HD Showroom Display", cat: "fine" },
+          { title: "Hotel Ramada Plaza BY Wyndham JHV", lat: 25.332612, lng: 82.980415, spec: "P2.5 Indoor Premium Banquet Video Wall", cat: "fine" },
+          { title: "Kuber Complex Rathyatra", lat: 25.307244, lng: 82.990412, spec: "P4 Outdoor Corporate Facade Display", cat: "standard" },
+
+          { title: "Suvarshini Varanasi Airport", lat: 25.448627, lng: 82.856050, spec: "P2.5 Indoor Premium Aviation Display Core", cat: "fine" },
+          { title: "Dhanuka Varanasi Airport", lat: 25.448594, lng: 82.857222, spec: "P1.8 Indoor Ultra fine Pitch High-End Screen", cat: "fine" },
+          { title: "Purvanchal Netralaya", lat: 25.346687, lng: 82.985698, spec: "P4 Outdoor Weatherproof Healthcare Signage Panel", cat: "standard" },
+          { title: "Krishna Alankar Mandir Pandeypur", lat: 25.350020, lng: 82.993605, spec: "P4 Outdoor Commercial Storefront Screen", cat: "standard" },
+          { title: "The Raymonds Shop Ordaly Bazar", lat: 25.350037, lng: 82.977964, spec: "P3 Outdoor High-Brightness Showroom Facade Display", cat: "p3alone" }, // Isolated P3
+          { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }  // Isolated P3
         ];
 
-        // Map initialized directly over the core clusters of Varanasi city center
         const map = L.map('live-map-canvas', {
-          scrollWheelZoom: false, // Prevents losing track of page scroll on touch views
+          scrollWheelZoom: false,
           tap: true
-        }).setView([25.3088, 82.9910], 13);
+        }).setView([25.3350, 82.9500], 11);
 
-        // Vector style layer: Premium Dark Matter map tiles matching theme specs
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
           maxZoom: 20
         }).addTo(map);
 
-        // Mapping execution loop over geo vectors with granular conditional layout rendering rules
         installations.forEach(function(project) {
           
-          let pinColor = "#00f5d4"; // Default Standard Cyan
+          let pinColor = "#00f5d4"; // P4 Standard Core (Neon Cyan)
           let glowColor = "rgba(0, 245, 212, 0.6)";
-          let statusBadge = "Premium Core";
+          let statusBadge = "P4 Outdoor Core";
 
-          // Conditional Engine: Assign neon traits based on technical categorizations
+          // Dynamic Logic Mapping Interface for 5 Distinct Custom Categories
           if (project.cat === "fine") {
              pinColor = "#25D366"; // Neon Green
              glowColor = "rgba(37, 211, 102, 0.6)";
-             statusBadge = "Fine Pitch HD";
+             statusBadge = "Fine Pitch HD Indoor";
+          } else if (project.cat === "p3alone") {
+             pinColor = "#00b4d8"; // Deep Neon Blue (Different grading for standalone P3)
+             glowColor = "rgba(0, 180, 216, 0.6)";
+             statusBadge = "P3 High-Contrast Outdoor";
           } else if (project.cat === "billboard") {
              pinColor = "#9b5de5"; // Neon Purple
              glowColor = "rgba(155, 93, 229, 0.6)";
@@ -779,10 +780,9 @@
           } else if (project.cat === "mixed") {
              pinColor = "#ff007f"; // Neon Pink
              glowColor = "rgba(255, 0, 127, 0.6)";
-             statusBadge = "Mixed Complex Node";
+             statusBadge = "Mixed Infrastructure Complex";
           }
 
-          // Build vector map div components
           const dynamicNeonPin = L.divIcon({
             className: 'cms-live-pin',
             html: `
@@ -801,7 +801,6 @@
             popupAnchor: [0, -10]
           });
 
-          // Custom UI layout structure for internal project popup boxes
           const popupMarkup = `
             <div style="padding: 6px; min-width: 190px; font-family: 'Segoe UI', sans-serif; color: #090d16;">
               <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; line-height: 1.35; color: #141c2b;">${project.title}</h4>
