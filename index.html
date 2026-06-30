@@ -550,6 +550,7 @@
             <h2 class="section-title">Precision Hardware Specifications</h2>
             <div class="grid-3">
                 <div class="card cyan-accent">
+                    ].setAttribute("style","color: var(--accent-cyan); font-weight:700;"); // Safe dynamic injector
                     <h3>High Pixel Density</h3>
                     <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
                 </div>
@@ -709,7 +710,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors[span_0](start_span)[span_0](end_span)
+        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors[span_1](start_span)[span_1](end_span)
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -759,44 +760,43 @@
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
           tap: true
-        }).setView([25.3350, 82.9500], 11);[span_1](start_span)[span_1](end_span)
+        }).setView([25.3350, 82.9500], 11);[span_2](start_span)[span_2](end_span)
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
           maxZoom: 20
         }).addTo(map);
 
-        // FORCED TILE ALIGNMENT FIX ON RENDER
+        // FORCED FALLBACK TILES SYNC OVERRIDE ON INITIAL RE-POSITION
         setTimeout(function() {
             map.invalidateSize({ animate: false });
-        }, 300);
+        }, 400);
 
-        const markerMap = {};[span_2](start_span)[span_2](end_span)
+        const markerMap = {};[span_3](start_span)[span_3](end_span)
 
-        installations.forEach(function(project) {[span_3](start_span)[span_3](end_span)
+        installations.forEach(function(project) {[span_4](start_span)[span_4](end_span)
           let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
 
-          if (project.cat === "fine") {[span_4](start_span)[span_4](end_span)
+          if (project.cat === "fine") {[span_5](start_span)[span_5](end_span)
              pinColor = "#25D366"; 
              glowColor = "rgba(37, 211, 102, 0.6)";
              statusBadge = "Fine Pitch HD Indoor";
-          } else if (project.cat === "p3alone") {[span_5](start_span)[span_5](end_span)
+          } else if (project.cat === "p3alone") {[span_6](start_span)[span_6](end_span)
              pinColor = "#00b4d8"; 
              glowColor = "rgba(0, 180, 216, 0.6)";
              statusBadge = "P3 High-Contrast Outdoor";
-          } else if (project.cat === "billboard") {[span_6](start_span)[span_6](end_span)
+          } else if (project.cat === "billboard") {[span_7](start_span)[span_7](end_span)
              pinColor = "#9b5de5"; 
              glowColor = "rgba(155, 93, 229, 0.6)";
              statusBadge = "High-Impact Billboard";
-          } else if (project.cat === "mixed") {[span_7](start_span)[span_7](end_span)
+          } else if (project.cat === "mixed") {[span_8](start_span)[span_8](end_span)
              pinColor = "#ff007f"; 
              glowColor = "rgba(255, 0, 127, 0.6)";
              statusBadge = "Mixed Infrastructure Complex";
           }
 
-          const dynamicNeonPin = L.divIcon({[span_8](start_span)[span_8](end_span)
+          const dynamicNeonPin = L.divIcon({[span_9](start_span)[span_9](end_span)
             className: 'cms-live-pin',
             html: `<div style="position: relative; width: 14px; height: 14px; background-color: ${pinColor}; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 10px ${pinColor}, 0 0 18px ${glowColor};"></div>`,
             iconSize: [14, 14],
@@ -815,21 +815,21 @@
             </div>
           `;
 
-          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })[span_9](start_span)[span_9](end_span)
+          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })[span_10](start_span)[span_10](end_span)
             .addTo(map)
             .bindPopup(popupMarkup);
             
-          markerMap[project.lat.toString()] = marker;[span_10](start_span)[span_10](end_span)
+          markerMap[project.lat.toString()] = marker;[span_11](start_span)[span_11](end_span)
         });
 
         let currentFlightPathLine = null;
         let finalGlobalNetworkLines = []; 
 
-        // ── 1.5x SPEED SMOOTH VIRTUAL TOUR ENGINE (PLANE ICON REMOVED) ──[span_11](start_span)[span_11](end_span)
-        document.getElementById('start-tour-btn').addEventListener('click', function() {[span_12](start_span)[span_12](end_span)
+        // ── 1.5x SMOOTH PRIORITY-SORTED CINEMATIC VIRTUAL TOUR ENGINE ──[span_12](start_span)[span_12](end_span)
+        document.getElementById('start-tour-btn').addEventListener('click', function() {[span_13](start_span)[span_13](end_span)
             
-            const priorityTourQueue = [[span_13](start_span)[span_13](end_span)
-              // PHASE 1: HIGH QUALITY PREMIUM SCREENS[span_14](start_span)[span_14](end_span)
+            const priorityTourQueue = [[span_14](start_span)[span_14](end_span)
+              // PHASE 1: HIGH QUALITY PREMIUM SCREENS[span_15](start_span)[span_15](end_span)
               { lat: 25.448594, lng: 82.857222, zoom: 16 }, 
               { lat: 25.448627, lng: 82.856050, zoom: 16 }, 
               { lat: 25.332612, lng: 82.980415, zoom: 16 }, 
@@ -837,14 +837,14 @@
               { lat: 25.324775, lng: 82.992768, zoom: 16 }, 
               { lat: 25.306122, lng: 83.001422, zoom: 16 }, 
 
-              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE[span_15](start_span)[span_15](end_span)
+              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE[span_16](start_span)[span_16](end_span)
               { lat: 25.311693, lng: 83.010303, zoom: 16 }, 
               { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
               { lat: 25.328263, lng: 82.995396, zoom: 16 }, 
               { lat: 25.324712, lng: 82.992566, zoom: 16 }, 
               { lat: 25.309482, lng: 82.989255, zoom: 16 }, 
 
-              // PHASE 3: OTHER COMMERCIAL ASSETS[span_16](start_span)[span_16](end_span)
+              // PHASE 3: OTHER COMMERCIAL ASSETS[span_17](start_span)[span_17](end_span)
               { lat: 25.307810, lng: 82.990744, zoom: 16 }, 
               { lat: 25.289708, lng: 82.999333, zoom: 16 }, 
               { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
@@ -852,26 +852,25 @@
               { lat: 25.312580, lng: 82.988833, zoom: 16 }  
             ];
 
-            let currentStopIndex = 0;[span_17](start_span)[span_17](end_span)
-            const btnElement = document.getElementById('start-tour-btn');[span_18](start_span)[span_18](end_span)
+            let currentStopIndex = 0;[span_18](start_span)[span_18](end_span)
+            const btnElement = document.getElementById('start-tour-btn');[span_19](start_span)[span_19](end_span)
             
-            btnElement.innerText = "🔄 Virtual Tour Active...";[span_19](start_span)[span_19](end_span)
-            btnElement.style.opacity = "0.7";[span_20](start_span)[span_20](end_span)
+            btnElement.innerText = "🔄 Virtual Tour Active...";[span_20](start_span)[span_20](end_span)
+            btnElement.style.opacity = "0.7";[span_21](start_span)[span_21](end_span)
             
             if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
             finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
             finalGlobalNetworkLines = [];
-            map.closePopup();[span_21](start_span)[span_21](end_span)
+            map.closePopup();[span_22](start_span)[span_22](end_span)
 
-            function executeNextPriorityStop() {[span_22](start_span)[span_22](end_span)
-                if (currentStopIndex >= priorityTourQueue.length) {[span_23](start_span)[span_23](end_span)
+            function executeNextPriorityStop() {[span_23](start_span)[span_23](end_span)
+                if (currentStopIndex >= priorityTourQueue.length) {[span_24](start_span)[span_24](end_span)
                     if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
-                    map.closePopup();[span_24](start_span)[span_24](end_span)
+                    map.closePopup();[span_25](start_span)[span_25](end_span)
 
-                    // Smooth zoom out to frame the entire interconnected grid network
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });[span_25](start_span)[span_25](end_span)
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.5 });[span_26](start_span)[span_26](end_span)
 
-                    // GRAND FINALE: Generate bright neon interconnected path lines layout
+                    // Draw Connected Network Web for Grand Finale Focus Group
                     for (let i = 0; i < priorityTourQueue.length; i++) {
                         for (let j = i + 1; j < Math.min(i + 5, priorityTourQueue.length); j++) {
                             let webLine = L.polyline([
@@ -887,55 +886,52 @@
                         }
                     }
 
-                    // Network remains beautifully visible for 2 seconds before clean reset
                     setTimeout(() => {
                         finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
                         finalGlobalNetworkLines = [];
-                        btnElement.innerText = "🎬 Start Virtual Tour";[span_26](start_span)[span_26](end_span)
-                        btnElement.style.opacity = "1";[span_27](start_span)[span_27](end_span)
+                        btnElement.innerText = "🎬 Start Virtual Tour";[span_27](start_span)[span_27](end_span)
+                        btnElement.style.opacity = "1";[span_28](start_span)[span_28](end_span)
                     }, 2000);
 
-                    return;[span_28](start_span)[span_28](end_span)
+                    return;[span_29](start_span)[span_29](end_span)
                 }
 
-                const currentTargetStop = priorityTourQueue[currentStopIndex];[span_29](start_span)[span_29](end_span)
+                const currentTargetStop = priorityTourQueue[currentStopIndex];[span_30](start_span)[span_30](end_span)
                 const startCoords = currentStopIndex === 0 ? [25.3350, 82.9500] : [priorityTourQueue[currentStopIndex - 1].lat, priorityTourQueue[currentStopIndex - 1].lng];
                 const endCoords = [currentTargetStop.lat, currentTargetStop.lng];
 
                 if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
 
-                // Beautiful Glowing Neon Track Line Follower
+                // Glowing Neon Follower Track Line setup
                 currentFlightPathLine = L.polyline([startCoords, endCoords], {
                     color: '#00f5d4',
                     weight: 3,
-                    opacity: 0.8,
-                    shadowBlur: 10,
-                    shadowColor: '#00f5d4'
+                    opacity: 0.8
                 }).addTo(map);
 
-                // Smooth 1.5x Camera Panning Flow - Duration 2.2 seconds flat
-                map.flyTo(endCoords, currentTargetStop.zoom, {[span_30](start_span)[span_30](end_span)
+                // 1.5x Flow Speed: Pan transitions set cleanly to 2.2s flat[span_31](start_span)[span_31](end_span)
+                map.flyTo(endCoords, currentTargetStop.zoom, {[span_32](start_span)[span_32](end_span)
                     animate: true,
                     duration: 2.2
-                });[span_31](start_span)[span_31](end_span)
+                });[span_33](start_span)[span_33](end_span)
 
-                map.once('moveend', function() {[span_32](start_span)[span_32](end_span)
-                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_33](start_span)[span_33](end_span)
-                    if (activeTargetMarker) {[span_34](start_span)[span_34](end_span)
-                        setTimeout(() => {[span_35](start_span)[span_35](end_span)
-                            activeTargetMarker.openPopup();[span_36](start_span)[span_36](end_span)
-                            currentStopIndex++;[span_37](start_span)[span_37](end_span)
-                            setTimeout(executeNextPriorityStop, 2000);[span_38](start_span)[span_38](end_span)
-                        }, 200);[span_39](start_span)[span_39](end_span)
-                    } else {[span_40](start_span)[span_40](end_span)
-                        currentStopIndex++;[span_41](start_span)[span_41](end_span)
-                        executeNextPriorityStop();[span_42](start_span)[span_42](end_span)
-                    }[span_43](start_span)[span_43](end_span)
-                });[span_44](start_span)[span_44](end_span)
-            }[span_45](start_span)[span_45](end_span)
+                map.once('moveend', function() {[span_34](start_span)[span_34](end_span)
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_35](start_span)[span_35](end_span)
+                    if (activeTargetMarker) {[span_36](start_span)[span_36](end_span)
+                        setTimeout(() => {[span_37](start_span)[span_37](end_span)
+                            activeTargetMarker.openPopup();[span_38](start_span)[span_38](end_span)
+                            currentStopIndex++;[span_39](start_span)[span_39](end_span)
+                            setTimeout(executeNextPriorityStop, 2000);[span_40](start_span)[span_40](end_span)
+                        }, 200);[span_41](start_span)[span_41](end_span)
+                    } else {[span_42](start_span)[span_42](end_span)
+                        currentStopIndex++;[span_43](start_span)[span_43](end_span)
+                        executeNextPriorityStop();[span_44](start_span)[span_44](end_span)
+                    }[span_45](start_span)[span_45](end_span)
+                });[span_46](start_span)[span_46](end_span)
+            }[span_47](start_span)[span_47](end_span)
 
-            executeNextPriorityStop();[span_46](start_span)[span_46](end_span)
-        });[span_47](start_span)[span_47](end_span)
+            executeNextPriorityStop();[span_48](start_span)[span_48](end_span)
+        });[span_49](start_span)[span_49](end_span)
 
       });
     </script>
