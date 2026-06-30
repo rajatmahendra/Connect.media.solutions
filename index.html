@@ -499,9 +499,9 @@
             <div class="legend-item"><span class="legend-dot" style="background-color: #ff007f; box-shadow: 0 0 8px #ff007f;"></span> Mixed Complex Infrastructure</div>
         </div>
         
-        <!-- Premium Floating Auto-Tour Control Button -->
-        <div style="text-align: center; margin-bottom: 20px;">
-            <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8); color: #090d16; padding: 12px 28px; border: none; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: var(--neon-glow); transition: all 0.3s ease;">
+        <!-- FORCED DISPLAY FOR AUTOMATED TOUR CONTROL BUTTON -->
+        <div style="text-align: center !important; margin-bottom: 25px !important; display: block !important; position: relative !important; z-index: 999 !important;">
+            <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8) !important; color: #090d16 !important; padding: 14px 32px !important; border: none !important; border-radius: 6px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; cursor: pointer !important; box-shadow: var(--neon-glow) !important; display: inline-block !important; font-size: 1rem !important;">
                 🎬 Start Cinematic Tour
             </button>
         </div>
@@ -520,7 +520,7 @@
                     <iframe src="https://www.youtube.com/embed/pRdR85v5zwY" title="p2 5 high quality led wall installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h3>MPSM Grace Convent Mathura</h3>
-                <p style="color: var(--text-muted); p2.5 indoor installation in auditorium</p>
+                <p style="color: var(--text-muted);">p2.5 indoor installation in auditorium</p>
             </div>
 
             <div class="card cyan-accent">
@@ -528,7 +528,7 @@
                     <iframe src="https://www.youtube.com/embed/6OoBgYqe5_M" title="p2 5 high quality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h3>Hotel Ecoxpress Sigra Varanasi</h3>
-                <p style="color: var(--text-muted); p2.5 indoor Led wall installation in banquet hall</p>
+                <p style="color: var(--text-muted);">p2.5 indoor Led wall installation in banquet hall</p>
             </div>
 
             <div class="card cyan-accent">
@@ -536,7 +536,7 @@
                     <iframe src="https://www.youtube.com/embed/IOEu9lSyuWc" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h3>p4 Outdoor Led Video Van RL Massale</h3>
-                <p style="color: var(--text-muted); mugalsarai varanasi</p>
+                <p style="color: var(--text-muted);">mugalsarai varanasi</p>
             </div>
 
             <div class="card cyan-accent">
@@ -544,7 +544,7 @@
                     <iframe src="https://www.youtube.com/embed/99g2kXDNQuw" title="p4 outdoor high quality installation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <h3>p4 Outdoor High Quality at Kashi Vishwanath Dham Varanasi</h3>
-                <p style="color: var(--text-muted); total no. of 16 plus screen at various location inside premises of Shri kashi Vishwanath temple in varanasi by us</p>
+                <p style="color: var(--text-muted);">total no. of 16 plus screen at various location inside premises of Shri kashi Vishwanath temple in varanasi by us</p>
             </div>
         </div>
 
@@ -754,7 +754,7 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
-        // Frame initialization calibrated cleanly to capture both Airport and city clusters together
+        // Adjusted zoom perspective
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
           tap: true
@@ -765,29 +765,28 @@
           maxZoom: 20
         }).addTo(map);
 
-        // Array to hold marker references for the automated navigation engine
         const markerMap = {};
 
         installations.forEach(function(project) {
           
-          let pinColor = "#00f5d4"; // P4 Core Cyan
+          let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
 
           if (project.cat === "fine") {
-             pinColor = "#25D366"; // Neon Green
+             pinColor = "#25D366"; 
              glowColor = "rgba(37, 211, 102, 0.6)";
              statusBadge = "Fine Pitch HD Indoor";
           } else if (project.cat === "p3alone") {
-             pinColor = "#00b4d8"; // Neon Blue
+             pinColor = "#00b4d8"; 
              glowColor = "rgba(0, 180, 216, 0.6)";
              statusBadge = "P3 High-Contrast Outdoor";
           } else if (project.cat === "billboard") {
-             pinColor = "#9b5de5"; // Neon Purple
+             pinColor = "#9b5de5"; 
              glowColor = "rgba(155, 93, 229, 0.6)";
              statusBadge = "High-Impact Billboard";
           } else if (project.cat === "mixed") {
-             pinColor = "#ff007f"; // Neon Pink
+             pinColor = "#ff007f"; 
              glowColor = "rgba(255, 0, 127, 0.6)";
              statusBadge = "Mixed Infrastructure Complex";
           }
@@ -825,19 +824,17 @@
             .addTo(map)
             .bindPopup(popupMarkup);
             
-          // Save reference using latitude string key to quickly lookup pins later
           markerMap[project.lat.toString()] = marker;
         });
 
         // ── AUTOMATED PORTRAIT-READY CINEMATIC TOUR ENGINE ──
         document.getElementById('start-tour-btn').addEventListener('click', function() {
-            // Curated stop triggers focused on your top high-profile aviation, retail, and heritage sites
             const tourStops = [
-              { lat: 25.448594, lng: 82.857222, zoom: 15 }, // Dhanuka Varanasi Airport
-              { lat: 25.306571, lng: 82.990765, zoom: 16 }, // Narayan Das Sarraf Rathyatra
-              { lat: 25.312580, lng: 82.988833, zoom: 16 }, // Sumagal Jewellers Sigra
-              { lat: 25.350037, lng: 82.977964, zoom: 16 }, // The Raymonds Shop Ordaly Bazar
-              { lat: 25.311693, lng: 83.010303, zoom: 16 }  // Kashi Vishwanath Temple Premises
+              { lat: 25.448594, lng: 82.857222, zoom: 15 }, 
+              { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
+              { lat: 25.312580, lng: 82.988833, zoom: 16 }, 
+              { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
+              { lat: 25.311693, lng: 83.010303, zoom: 16 }  
             ];
 
             let currentStop = 0;
@@ -849,7 +846,6 @@
 
             function runTourSequence() {
                 if (currentStop >= tourStops.length) {
-                    // Sequence Finish: Smoothly reset to original birds-eye perspective
                     map.flyTo([25.3350, 82.9500], 11, { duration: 3.5 });
                     btnElement.innerText = "🎬 Start Cinematic Tour";
                     btnElement.style.opacity = "1";
@@ -858,20 +854,17 @@
 
                 const activeStop = tourStops[currentStop];
                 
-                // Cinematic glide to target node
                 map.flyTo([activeStop.lat, activeStop.lng], activeStop.zoom, {
                     animate: true,
-                    duration: 3.5 // Panning flight speed configuration rule
+                    duration: 3.5 
                 });
 
-                // Once navigation glide halts, deploy popups and trigger delay intervals
                 map.once('moveend', function() {
                     const targetMarker = markerMap[activeStop.lat.toString()];
                     if (targetMarker) {
                         setTimeout(() => {
                             targetMarker.openPopup();
                             currentStop++;
-                            // Standby timeframe window for reading text values before moving next
                             setTimeout(runTourSequence, 3500); 
                         }, 400);
                     } else {
