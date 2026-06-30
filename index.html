@@ -463,15 +463,15 @@
         </div>
     </section>
 
-    <!-- ── EXCLUSIVE INTERACTIVE PROJECTS MAP SECTION (ADDED ACCORDING TO SPECS) ── -->
-    <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem; max-width: 1200px; margin: 0 auto;">
+    <!-- ── EXCLUSIVE INTERACTIVE PROJECTS MAP SECTION (WITH FORCED RENDERING FIXES) ── -->
+    <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">
             Explore our footprint across the city. Click on any custom neon pin layout to track our live technical deployments.
         </p>
         
-        <!-- Live Map Canvas Box -->
-        <div id="live-map-canvas" style="height: 550px; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6);"></div>
+        <!-- Live Map Canvas Box (Fixed Height, Explicit Block, and Safe Layering) -->
+        <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
     </section>
 
     <!-- ── EXCLUSIVE PROJECT SHOWCASE GALLERY ── -->
