@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Media Solutions | Next-Gen LED Video Walls</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet Map Engine Style Sheet (CDN Fallback Enabled) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- FontAwesome Library for Animated Flight Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
     <style>
         :root {
@@ -366,6 +369,20 @@
             border: 1px solid #fff;
         }
 
+        /* Flight Icon Neon Glow Styling Rules */
+        .flight-plane-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flight-plane-icon {
+            color: var(--accent-cyan) !important;
+            font-size: 22px !important;
+            text-shadow: 0 0 12px var(--accent-cyan), 0 0 20px rgba(0, 245, 212, 0.8);
+            transform: rotate(45deg); 
+            transition: transform 0.2s ease;
+        }
+
         @media (max-width: 900px) {
             .split-layout { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero h1 { font-size: 2.5rem; }
@@ -423,7 +440,7 @@
             </div>
             <div>
                 <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Who We Are</h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; mb: 1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Operating from our headquarters in Varanasi, Uttar Pradesh, we serve as an expert engineering team specialized in hardware solutions and setup maintenance.</p>
                 <ul class="list-style" style="margin-top: 1.5rem;">
                     <li><strong>Robust Panel Assemblies</strong> Built with long lifecycle resilience to thrive continuously in demanding operations.</li>
                     <li><strong>Graphic Superiority</strong> Every deployment is calibrated carefully to achieve bright output performance metrics.</li>
@@ -439,53 +456,11 @@
                 <div class="card"><h3>Storefront Solutions</h3><p style="color: var(--text-muted);">High-brightness exterior panels optimized for highways and shopping lanes.</p></div>
                 <div class="card"><h3>End-to-End Service</h3><p style="color: var(--text-muted);">Comprehensive logistical oversight spanning from initial planning to deployment.</p></div>
             </div>
-            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
+            <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner" />
         </div>
     </section>
 
-    <div class="tech-wrapper" id="technology">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 class="section-title">Precision Hardware Specifications</h2>
-            <div class="grid-3">
-                <div class="card cyan-accent">
-                    <h3>High Pixel Density</h3>
-                    <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Adaptive Contrast</h3>
-                    <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
-                </div>
-                <div class="card cyan-accent">
-                    <h3>Smart Energy Integration</h3>
-                    <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="applications">
-        <h2 class="section-title">Versatile Architecture Use</h2>
-        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <img src="pic6.jpg" alt="Corporate Environment Assembly">
-                <h3>Corporate</h3>
-                <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
-            </div>
-            <div class="card">
-                <img src="pic7.jpg" alt="Retail Front Display Setup">
-                <h3>Commercial</h3>
-                <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
-            </div>
-            <div class="card">
-                <img src="pic8.jpg" alt="Large Area Arena Panel Display">
-                <h3>Public Spaces</h3>
-                <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- ── INTERACTIVE PROJECTS MAP SECTION ──[span_0](start_span)[span_0](end_span) -->
     <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
         
@@ -497,15 +472,18 @@
             <div class="legend-item"><span class="legend-dot" style="background-color: #ff007f; box-shadow: 0 0 8px #ff007f;"></span> Mixed Complex Infrastructure</div>
         </div>
         
+        <!-- AUTOMATED VIRTUAL TOUR BUTTON[span_1](start_span)[span_1](end_span) -->
         <div style="text-align: center !important; margin-bottom: 25px !important; display: block !important; position: relative !important; z-index: 999 !important;">
             <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8) !important; color: #090d16 !important; padding: 14px 32px !important; border: none !important; border-radius: 6px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; cursor: pointer !important; box-shadow: var(--neon-glow) !important; display: inline-block !important; font-size: 1rem !important;">
-                🎬 Start 2x Fast Priority Tour
+                🎬 Start Virtual Tour
             </button>
         </div>
         
+        <!-- INLINE FORCED HEIGHT RULES APPLIED SECURELY TO PREVENT RENDERING LOCKS -->
         <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
     </section>
 
+    <!-- ── EXCLUSIVE PROJECT SHOWCASE GALLERY (VIDEOS & REELS) ──[span_2](start_span)[span_2](end_span) -->
     <section id="media-hub" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem;">
         <h2 class="section-title">On-Site Project Deployments</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
@@ -582,6 +560,49 @@
         </div>
     </section>
 
+    <div class="tech-wrapper" id="technology">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Precision Hardware Specifications</h2>
+            <div class="grid-3">
+                <div class="card cyan-accent">
+                    <h3>High Pixel Density</h3>
+                    <p style="color: var(--text-muted);">Fine pixel pitch configuration providing crisp media display capabilities for close-range viewing setups.</p>
+                </div>
+                <div class="card cyan-accent">
+                    <h3>Adaptive Contrast</h3>
+                    <p style="color: var(--text-muted);">Vivid color arrays designed to maintain clean visibility under direct ambient sunlight configurations.</p>
+                </div>
+                <div class="card cyan-accent">
+                    <h3>Smart Energy Integration</h3>
+                    <p style="color: var(--text-muted);">Advanced power supply engineering designed to lower overall electricity usage parameters automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="applications">
+        <h2 class="section-title">Versatile Architecture Use</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Flexible sizing frameworks engineered to render high-contrast content across varying venue types.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <img src="pic6.jpg" alt="Corporate Environment Assembly" />
+                <h3>Corporate</h3>
+                <p style="color: var(--text-muted);">Executive conference complexes, control centers, and greeting bays requiring sharp detailing.</p>
+            </div>
+            <div class="card">
+                <img src="pic7.jpg" alt="Retail Front Display Setup" />
+                <h3>Commercial</h3>
+                <p style="color: var(--text-muted);">Premium shopping malls, fashion showroom windows, and digital directory screens.</p>
+            </div>
+            <div class="card">
+                <img src="pic8.jpg" alt="Large Area Arena Panel Display" />
+                <h3>Public Spaces</h3>
+                <p style="color: var(--text-muted);">Stadium structures, outdoor transportation plazas, and high-visibility digital billboards.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="workflow" class="split-layout">
         <div>
             <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Strategic Project Lifecycle</h2>
@@ -592,7 +613,7 @@
             </ul>
         </div>
         <div>
-            <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" style="margin-top:0;">
+            <img src="pic9.jpg" alt="Engineering Technical Testing Workspace" class="row-banner" />
         </div>
     </section>
 
@@ -607,14 +628,14 @@
                 <p style="color: var(--accent-pink); font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">09AOXPR4212G1ZI</p>
             </div>
             <div>
-                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;">
+                <img src="pic10.jpg" alt="Compliance Document Framework" style="width:100%; border-radius: 8px;" />
             </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="contact-box">
-            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner">
+            <img src="pic11.jpg" alt="Business Integration Agreement Representation" class="contact-banner" />
 
             <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Let's Connect</h2>
             <p style="color: var(--text-muted);">Ready to establish an iconic visual benchmark at your location? Fill out your parameters below.</p>
@@ -625,12 +646,12 @@
                 <form id="leadForm" onsubmit="sendToWhatsApp(event)">
                     <div style="margin-bottom: 1.2rem;">
                         <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Your Name *</label>
-                        <input type="text" id="visitorName" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+                        <input type="text" id="visitorName" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;" />
                     </div>
                     
                     <div style="margin-bottom: 1.2rem;">
                         <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Mobile / Phone Number *</label>
-                        <input type="tel" id="visitorPhone" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+                        <input type="tel" id="visitorPhone" required style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;" />
                     </div>
                     
                     <div style="margin-bottom: 1.5rem;">
@@ -698,11 +719,12 @@
         <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- ── LEAFLET CORE SCRIPT ENGINE AND MAP INSTANTIATION LOGIC ── -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Installation Vectors Across Varanasi
+        // Fully Integrated Database of 36 Installation Vectors Across Varanasi[span_3](start_span)[span_3](end_span)
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -749,43 +771,44 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
+        // Adjusted zoom perspective[span_4](start_span)[span_4](end_span)
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
           tap: true
-        }).setView([25.3350, 82.9500], 11);
+        }).setView([25.3350, 82.9500], 11);[span_5](start_span)[span_5](end_span)
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
           maxZoom: 20
         }).addTo(map);
 
-        const markerMap = {};
+        const markerMap = {};[span_6](start_span)[span_6](end_span)
 
-        installations.forEach(function(project) {
+        installations.forEach(function(project) {[span_7](start_span)[span_7](end_span)
           
           let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
 
-          if (project.cat === "fine") {
+          if (project.cat === "fine") {[span_8](start_span)[span_8](end_span)
              pinColor = "#25D366"; 
              glowColor = "rgba(37, 211, 102, 0.6)";
              statusBadge = "Fine Pitch HD Indoor";
-          } else if (project.cat === "p3alone") {
+          } else if (project.cat === "p3alone") {[span_9](start_span)[span_9](end_span)
              pinColor = "#00b4d8"; 
              glowColor = "rgba(0, 180, 216, 0.6)";
              statusBadge = "P3 High-Contrast Outdoor";
-          } else if (project.cat === "billboard") {
+          } else if (project.cat === "billboard") {[span_10](start_span)[span_10](end_span)
              pinColor = "#9b5de5"; 
              glowColor = "rgba(155, 93, 229, 0.6)";
              statusBadge = "High-Impact Billboard";
-          } else if (project.cat === "mixed") {
+          } else if (project.cat === "mixed") {[span_11](start_span)[span_11](end_span)
              pinColor = "#ff007f"; 
              glowColor = "rgba(255, 0, 127, 0.6)";
              statusBadge = "Mixed Infrastructure Complex";
           }
 
-          const dynamicNeonPin = L.divIcon({
+          const dynamicNeonPin = L.divIcon({[span_12](start_span)[span_12](end_span)
             className: 'cms-live-pin',
             html: `
               <div style="
@@ -814,83 +837,145 @@
             </div>
           `;
 
-          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })
+          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })[span_13](start_span)[span_13](end_span)
             .addTo(map)
             .bindPopup(popupMarkup);
             
-          markerMap[project.lat.toString()] = marker;
+          markerMap[project.lat.toString()] = marker;[span_14](start_span)[span_14](end_span)
         });
 
-        // ── 2x FAST PRIORITY-SORTED CINEMATIC TOUR ENGINE ──
-        document.getElementById('start-tour-btn').addEventListener('click', function() {
+        // Create DivIcon Config for Neon Glowing Airplane Symbol
+        const planeIcon = L.divIcon({
+            className: 'flight-plane-container',
+            html: '<i class="fa-solid fa-plane flight-plane-icon"></i>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+        
+        let activePlaneMarker = null;
+        let currentFlightPathLine = null;
+
+        // ── 2x FAST PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──[span_15](start_span)[span_15](end_span)
+        document.getElementById('start-tour-btn').addEventListener('click', function() {[span_16](start_span)[span_16](end_span)
             
-            // Re-structured database queue built around custom technical priorities
-            const priorityTourQueue = [
-              // PHASE 1: HIGH QUALITY PREMIUM SCREENS (Fine Pitch & Ultra HD Green Core Nodes)
-              { lat: 25.448594, lng: 82.857222, zoom: 16 }, // Dhanuka Varanasi Airport [P1.8 Fine HD]
-              { lat: 25.448627, lng: 82.856050, zoom: 16 }, // Suvarshini Varanasi Airport [P2.5 Fine HD]
-              { lat: 25.332612, lng: 82.980415, zoom: 16 }, // Hotel Ramada Plaza BY Wyndham JHV [P2.5 Fine HD]
-              { lat: 25.305376, lng: 82.996097, zoom: 16 }, // Shri Rajbandhu Sweets Kamaksha [P2.5 Fine HD]
-              { lat: 25.324775, lng: 82.992768, zoom: 16 }, // Sun Sutra Club Vinayak Plaza [P2.5 Fine HD]
-              { lat: 25.306122, lng: 83.001422, zoom: 16 }, // Pardaha Saree Showroom Luxa Road [P2.5 Fine HD]
+            const priorityTourQueue = [[span_17](start_span)[span_17](end_span)
+              // PHASE 1: HIGH QUALITY PREMIUM SCREENS
+              { lat: 25.448594, lng: 82.857222, zoom: 16 }, 
+              { lat: 25.448627, lng: 82.856050, zoom: 16 }, 
+              { lat: 25.332612, lng: 82.980415, zoom: 16 }, 
+              { lat: 25.305376, lng: 82.996097, zoom: 16 }, 
+              { lat: 25.324775, lng: 82.992768, zoom: 16 }, 
+              { lat: 25.306122, lng: 83.001422, zoom: 16 }, 
 
-              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE (Mass Deployments & Complex Pink Matrix Hubs)
-              { lat: 25.311693, lng: 83.010303, zoom: 16 }, // Total of 17 Screens at Kashi Vishwanath Temple Premises [High Quantity]
-              { lat: 25.306571, lng: 82.990765, zoom: 16 }, // Narayan Das Sarraf Jewellers Rathyatra [Multi-Screen Configuration]
-              { lat: 25.328263, lng: 82.995396, zoom: 16 }, // Bati Chokha Auditorium Varanasi [Tri-Layer Layout Setup]
-              { lat: 25.324712, lng: 82.992566, zoom: 16 }, // Duchie Duchie Vinayak Plaza [Twin Layout System]
-              { lat: 25.309482, lng: 82.989255, zoom: 16 }, // IP Mall Sigra [High Traffic Core]
+              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE
+              { lat: 25.311693, lng: 83.010303, zoom: 16 }, 
+              { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
+              { lat: 25.328263, lng: 82.995396, zoom: 16 }, 
+              { lat: 25.324712, lng: 82.992566, zoom: 16 }, 
+              { lat: 25.309482, lng: 82.989255, zoom: 16 }, 
 
-              // PHASE 3: OTHER COMMERCIAL ASSETS (Standalone P3 Blue Nodes & Large Scale Billboard Purple Vectors)
-              { lat: 25.307810, lng: 82.990744, zoom: 16 }, // Navratan Jewellers Rathyatra [P3 Alone]
-              { lat: 25.289708, lng: 82.999333, zoom: 16 }, // Narayan Das Sarraf Jewellers Bhelupur [P3 Alone]
-              { lat: 25.350037, lng: 82.977964, zoom: 16 }, // The Raymonds Shop Ordaly Bazar [P3 Alone]
-              { lat: 25.349371, lng: 82.981674, zoom: 16 }, // Dhanuka Ordaly Bazar [P3 Alone]
-              { lat: 25.312580, lng: 82.988833, zoom: 16 }  // Sumagal Jewellers Sigra [P10 Large Billboard]
+              // PHASE 3: OTHER COMMERCIAL ASSETS
+              { lat: 25.307810, lng: 82.990744, zoom: 16 }, 
+              { lat: 25.289708, lng: 82.999333, zoom: 16 }, 
+              { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
+              { lat: 25.349371, lng: 82.981674, zoom: 16 }, 
+              { lat: 25.312580, lng: 82.988833, zoom: 16 }  
             ];
 
-            let currentStopIndex = 0;
-            const btnElement = document.getElementById('start-tour-btn');
+            let currentStopIndex = 0;[span_18](start_span)[span_18](end_span)
+            const btnElement = document.getElementById('start-tour-btn');[span_19](start_span)[span_19](end_span)
             
-            btnElement.innerText = "⚡ 2x Priority Tour Active...";
-            btnElement.style.opacity = "0.7";
-            map.closePopup();
+            btnElement.innerText = "🔄 Virtual Tour Active...";[span_20](start_span)[span_20](end_span)
+            btnElement.style.opacity = "0.7";[span_21](start_span)[span_21](end_span)
+            
+            if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+            if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+            map.closePopup();[span_22](start_span)[span_22](end_span)
 
-            function executeNextPriorityStop() {
-                if (currentStopIndex >= priorityTourQueue.length) {
-                    // Reset to standard birds-eye map canvas center over Varanasi when sequence limits finish
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 }); // Fast 2x zoom reset
-                    btnElement.innerText = "🎬 Start 2x Fast Priority Tour";
-                    btnElement.style.opacity = "1";
-                    return;
+            function executeNextPriorityStop() {[span_23](start_span)[span_23](end_span)
+                if (currentStopIndex >= priorityTourQueue.length) {[span_24](start_span)[span_24](end_span)
+                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+                    
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });[span_25](start_span)[span_25](end_span)
+                    btnElement.innerText = "🎬 Start Virtual Tour";[span_26](start_span)[span_26](end_span)
+                    btnElement.style.opacity = "1";[span_27](start_span)[span_27](end_span)
+                    return;[span_28](start_span)[span_28](end_span)
                 }
 
-                const currentTargetStop = priorityTourQueue[currentStopIndex];
+                const currentTargetStop = priorityTourQueue[currentStopIndex];[span_29](start_span)[span_29](end_span)
+                const startCoords = currentStopIndex === 0 ? [25.3350, 82.9500] : [priorityTourQueue[currentStopIndex - 1].lat, priorityTourQueue[currentStopIndex - 1].lng];
+                const endCoords = [currentTargetStop.lat, currentTargetStop.lng];
+
+                if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
+
+                currentFlightPathLine = L.polyline([startCoords, endCoords], {
+                    color: 'var(--accent-cyan)',
+                    weight: 3,
+                    dashArray: '8, 8',
+                    opacity: 0.8
+                }).addTo(map);
+
+                if (!activePlaneMarker) {
+                    activePlaneMarker = L.marker(startCoords, { icon: planeIcon }).addTo(map);
+                } else {
+                    activePlaneMarker.setLatLng(startCoords);
+                }
+
+                const dLng = endCoords[1] - startCoords[1];
+                const dLat = endCoords[0] - startCoords[0];
+                const headingAngle = Math.atan2(dLng, dLat) * (180 / Math.PI);
                 
-                // 2x Turbo Camera Speed Configuration: Reduced time frame from 3.5s down to 1.7s flat
-                map.flyTo([currentTargetStop.lat, currentTargetStop.lng], currentTargetStop.zoom, {
-                    animate: true,
-                    duration: 1.7 
-                });
-
-                map.once('moveend', function() {
-                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];
-                    if (activeTargetMarker) {
-                        setTimeout(() => {
-                            activeTargetMarker.openPopup();
-                            currentStopIndex++;
-                            // 2x Fast Stop Timeframe window: Reduced wait delay window down to 2.0s flat before moving next
-                            setTimeout(executeNextPriorityStop, 2000); 
-                        }, 200);
-                    } else {
-                        currentStopIndex++;
-                        executeNextPriorityStop();
+                setTimeout(() => {
+                    const planeDomNode = document.querySelector('.flight-plane-icon');
+                    if (planeDomNode) {
+                        planeDomNode.style.transform = `rotate(${headingAngle - 45}deg)`;
                     }
-                });
-            }
+                }, 50);
 
-            executeNextPriorityStop();
-        });
+                let progressInterval = null;
+                let frameStep = 0;
+                const totalFrames = 30; 
+
+                progressInterval = setInterval(() => {
+                    frameStep++;
+                    if (frameStep <= totalFrames) {
+                        const ratio = frameStep / totalFrames;
+                        const currentLat = startCoords[0] + (endCoords[0] - startCoords[0]) * ratio;
+                        const currentLng = startCoords[1] + (endCoords[1] - startCoords[1]) * ratio;
+                        if (activePlaneMarker) {
+                            activePlaneMarker.setLatLng([currentLat, currentLng]);
+                        }
+                    } else {
+                        clearInterval(progressInterval);
+                    }
+                }, 1700 / totalFrames); 
+
+                map.flyTo(endCoords, currentTargetStop.zoom, {
+                    animate: true,
+                    duration: 1.7
+                });[span_30](start_span)[span_30](end_span)
+
+                map.once('moveend', function() {[span_31](start_span)[span_31](end_span)
+                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
+                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_32](start_span)[span_32](end_span)
+                    if (activeTargetMarker) {[span_33](start_span)[span_33](end_span)
+                        setTimeout(() => {[span_34](start_span)[span_34](end_span)
+                            activeTargetMarker.openPopup();[span_35](start_span)[span_35](end_span)
+                            currentStopIndex++;[span_36](start_span)[span_36](end_span)
+                            setTimeout(executeNextPriorityStop, 2000);[span_37](start_span)[span_37](end_span)
+                        }, 200);[span_38](start_span)[span_38](end_span)
+                    } else {[span_39](start_span)[span_39](end_span)
+                        currentStopIndex++;[span_40](start_span)[span_40](end_span)
+                        executeNextPriorityStop();[span_41](start_span)[span_41](end_span)
+                    }[span_42](start_span)[span_42](end_span)
+                });[span_43](start_span)[span_43](end_span)
+            }[span_44](start_span)[span_44](end_span)
+
+            executeNextPriorityStop();[span_45](start_span)[span_45](end_span)
+        });[span_46](start_span)[span_46](end_span)
 
       });
     </script>
