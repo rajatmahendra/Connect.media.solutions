@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Media Solutions | Next-Gen LED Video Walls</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet Map Engine Style Sheet Sheet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- FontAwesome Library for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
@@ -367,19 +369,46 @@
             border: 1px solid #fff;
         }
 
-        /* Flight Icon Neon Glow Styling Rules */
-        .flight-plane-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999 !important;
+        /* Fullscreen Map Layout Setup */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
         }
-        .flight-plane-icon {
-            color: var(--accent-cyan) !important;
-            font-size: 26px !important;
-            text-shadow: 0 0 12px var(--accent-cyan), 0 0 25px rgba(0, 245, 212, 0.9);
-            display: inline-block !important;
-            transform-origin: center center;
+        .map-wrapper.fullscreen-active {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 99999 !important;
+            background-color: #090d16;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .map-wrapper.fullscreen-active #live-map-canvas {
+            height: 100vh !important;
+            border-radius: 0 !important;
+        }
+        .fullscreen-toggle-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10000;
+            background: #141c2b;
+            color: #00f5d4;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
+        }
+        .fullscreen-toggle-btn:hover {
+            background: #00f5d4;
+            color: #090d16;
         }
 
         @media (max-width: 900px) {
@@ -459,6 +488,7 @@
         </div>
     </section>
 
+    <!-- ── INTERACTIVE PROJECTS MAP SECTION ── -->
     <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
         
@@ -470,15 +500,21 @@
             <div class="legend-item"><span class="legend-dot" style="background-color: #ff007f; box-shadow: 0 0 8px #ff007f;"></span> Mixed Complex Infrastructure</div>
         </div>
         
+        <!-- AUTOMATED VIRTUAL TOUR BUTTON -->
         <div style="text-align: center !important; margin-bottom: 25px !important; display: block !important; position: relative !important; z-index: 999 !important;">
             <button id="start-tour-btn" style="background: linear-gradient(135deg, var(--accent-cyan), #00b4d8) !important; color: #090d16 !important; padding: 14px 32px !important; border: none !important; border-radius: 6px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important; cursor: pointer !important; box-shadow: var(--neon-glow) !important; display: inline-block !important; font-size: 1rem !important;">
                 🎬 Start Virtual Tour
             </button>
         </div>
         
-        <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
+        <!-- WRAPPER CONTEXT FOR STABLE FULLSCREEN SWAP MAP GRID -->
+        <div class="map-wrapper" id="map-frame-wrapper">
+            <button class="fullscreen-toggle-btn" id="toggle-fs-btn"><i class="fa-solid fa-expand"></i> Fullscreen View</button>
+            <div id="live-map-canvas" style="height: 550px !important; min-height: 550px !important; width: 100% !important; display: block !important; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background-color: #0d121f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: relative; z-index: 1;"></div>
+        </div>
     </section>
 
+    <!-- ── EXCLUSIVE PROJECT SHOWCASE GALLERY (VIDEOS & REELS) ── -->
     <section id="media-hub" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6rem;">
         <h2 class="section-title">On-Site Project Deployments</h2>
         <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3.5rem; max-width: 700px;">Explore our 4K video engineering and actual hardware setups deployed live in the field.</p>
@@ -714,11 +750,12 @@
         <p>&copy; 2026 Connect Media Solutions. All Rights Reserved. Engineered in Varanasi, Serviced System-Wide Across India.</p>
     </footer>
 
+    <!-- ── LEAFLET CORE SCRIPT ENGINE AND MAP INSTANTIATION LOGIC ── -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         
-        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors
+        // Fully Integrated Database of 36 Dedicated Varanasi Installation Vectors[span_0](start_span)[span_0](end_span)
         const installations = [
           { title: "Narayan Das Sarraf Jewellers Rathyatra", lat: 25.306571, lng: 82.990765, spec: "P2.5 Outdoor & P2 Outdoor High-End Configuration", cat: "mixed" },
           { title: "Taj Estate Swastik City Center", lat: 25.308877, lng: 82.990911, spec: "P4 Outdoor Commercial Video Wall", cat: "standard" },
@@ -765,46 +802,50 @@
           { title: "Dhanuka Ordaly Bazar", lat: 25.349371, lng: 82.981674, spec: "P3 Outdoor Premium Retail Brand Screen Layout", cat: "p3alone" }
         ];
 
+        // 1. RE-ENABLED GESTURE HANDLING AND REMOVED ACCIDENTAL POINTER LOCKS[span_1](start_span)[span_1](end_span)
         const map = L.map('live-map-canvas', {
           scrollWheelZoom: false,
+          dragging: true,
+          touchZoom: true,
           tap: true
-        }).setView([25.3350, 82.9500], 11);
+        }).setView([25.3350, 82.9500], 11);[span_2](start_span)[span_2](end_span)
 
+        // 2. STABLE HIGH-PERFORMANCE CARTO CDN DARK LAYER BASE
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           maxZoom: 20
         }).addTo(map);
 
-        // FORCED FALLBACK OVERRIDE FOR MISALIGNED TILES ON FIRST RENDER LOAD TIME
+        // Immediate responsive validation sweep
         setTimeout(function() {
             map.invalidateSize({ animate: false });
-        }, 300);
+        }, 200);
 
-        const markerMap = {};
+        const markerMap = {};[span_3](start_span)[span_3](end_span)
 
-        installations.forEach(function(project) {
+        installations.forEach(function(project) {[span_4](start_span)[span_4](end_span)
           let pinColor = "#00f5d4"; 
           let glowColor = "rgba(0, 245, 212, 0.6)";
           let statusBadge = "P4 Outdoor Core";
 
-          if (project.cat === "fine") {
+          if (project.cat === "fine") {[span_5](start_span)[span_5](end_span)
              pinColor = "#25D366"; 
              glowColor = "rgba(37, 211, 102, 0.6)";
              statusBadge = "Fine Pitch HD Indoor";
-          } else if (project.cat === "p3alone") {
+          } else if (project.cat === "p3alone") {[span_6](start_span)[span_6](end_span)
              pinColor = "#00b4d8"; 
              glowColor = "rgba(0, 180, 216, 0.6)";
              statusBadge = "P3 High-Contrast Outdoor";
-          } else if (project.cat === "billboard") {
+          } else if (project.cat === "billboard") {[span_7](start_span)[span_7](end_span)
              pinColor = "#9b5de5"; 
              glowColor = "rgba(155, 93, 229, 0.6)";
              statusBadge = "High-Impact Billboard";
-          } else if (project.cat === "mixed") {
+          } else if (project.cat === "mixed") {[span_8](start_span)[span_8](end_span)
              pinColor = "#ff007f"; 
              glowColor = "rgba(255, 0, 127, 0.6)";
              statusBadge = "Mixed Infrastructure Complex";
           }
 
-          const dynamicNeonPin = L.divIcon({
+          const dynamicNeonPin = L.divIcon({[span_9](start_span)[span_9](end_span)
             className: 'cms-live-pin',
             html: `<div style="position: relative; width: 14px; height: 14px; background-color: ${pinColor}; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 10px ${pinColor}, 0 0 18px ${glowColor};"></div>`,
             iconSize: [14, 14],
@@ -823,29 +864,21 @@
             </div>
           `;
 
-          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })
+          const marker = L.marker([project.lat, project.lng], { icon: dynamicNeonPin })[span_10](start_span)[span_10](end_span)
             .addTo(map)
             .bindPopup(popupMarkup);
             
-          markerMap[project.lat.toString()] = marker;
+          markerMap[project.lat.toString()] = marker;[span_11](start_span)[span_11](end_span)
         });
 
-        const planeIcon = L.divIcon({
-            className: 'flight-plane-container',
-            html: '<i class="fa-solid fa-plane flight-plane-icon"></i>',
-            iconSize: [24, 24],
-            iconAnchor: [12, 12]
-        });
-        
-        let activePlaneMarker = null;
         let currentFlightPathLine = null;
         let finalGlobalNetworkLines = []; 
 
-        // ── 1.5x SPEED PRIORITY-SORTED CINEMATIC FLIGHT TOUR ENGINE ──
-        document.getElementById('start-tour-btn').addEventListener('click', function() {
+        // ── 1.5x SPEED SMOOTH VIRTUAL TOUR ENGINE (CRASHING PLANE ARTIFACT REMOVED REMOVED) ──[span_12](start_span)[span_12](end_span)
+        document.getElementById('start-tour-btn').addEventListener('click', function() {[span_13](start_span)[span_13](end_span)
             
-            const priorityTourQueue = [
-              // PHASE 1: HIGH QUALITY PREMIUM SCREENS
+            const priorityTourQueue = [[span_14](start_span)[span_14](end_span)
+              // PHASE 1: HIGH QUALITY PREMIUM SCREENS[span_15](start_span)[span_15](end_span)
               { lat: 25.448594, lng: 82.857222, zoom: 16 }, 
               { lat: 25.448627, lng: 82.856050, zoom: 16 }, 
               { lat: 25.332612, lng: 82.980415, zoom: 16 }, 
@@ -853,14 +886,14 @@
               { lat: 25.324775, lng: 82.992768, zoom: 16 }, 
               { lat: 25.306122, lng: 83.001422, zoom: 16 }, 
 
-              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE
+              // PHASE 2: HIGH QUANTITY INFRASTRUCTURE[span_16](start_span)[span_16](end_span)
               { lat: 25.311693, lng: 83.010303, zoom: 16 }, 
               { lat: 25.306571, lng: 82.990765, zoom: 16 }, 
               { lat: 25.328263, lng: 82.995396, zoom: 16 }, 
               { lat: 25.324712, lng: 82.992566, zoom: 16 }, 
               { lat: 25.309482, lng: 82.989255, zoom: 16 }, 
 
-              // PHASE 3: OTHER COMMERCIAL ASSETS
+              // PHASE 3: OTHER COMMERCIAL ASSETS[span_17](start_span)[span_17](end_span)
               { lat: 25.307810, lng: 82.990744, zoom: 16 }, 
               { lat: 25.289708, lng: 82.999333, zoom: 16 }, 
               { lat: 25.350037, lng: 82.977964, zoom: 16 }, 
@@ -868,26 +901,26 @@
               { lat: 25.312580, lng: 82.988833, zoom: 16 }  
             ];
 
-            let currentStopIndex = 0;
-            const btnElement = document.getElementById('start-tour-btn');
+            let currentStopIndex = 0;[span_18](start_span)[span_18](end_span)
+            const btnElement = document.getElementById('start-tour-btn');[span_19](start_span)[span_19](end_span)
             
-            btnElement.innerText = "🔄 Virtual Tour Active...";
-            btnElement.style.opacity = "0.7";
+            btnElement.innerText = "🔄 Virtual Tour Active...";[span_20](start_span)[span_20](end_span)
+            btnElement.style.opacity = "0.7";[span_21](start_span)[span_21](end_span)
             
-            if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
             if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
             finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
             finalGlobalNetworkLines = [];
-            map.closePopup();
+            map.closePopup();[span_22](start_span)[span_22](end_span)
 
-            function executeNextPriorityStop() {
-                if (currentStopIndex >= priorityTourQueue.length) {
-                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+            function executeNextPriorityStop() {[span_23](start_span)[span_23](end_span)
+                if (currentStopIndex >= priorityTourQueue.length) {[span_24](start_span)[span_24](end_span)
                     if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
-                    map.closePopup();
+                    map.closePopup();[span_25](start_span)[span_25](end_span)
 
-                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.5 });
+                    // Smooth zoom out to frame the entire interconnected grid network
+                    map.flyTo([25.3350, 82.9500], 11, { duration: 1.8 });[span_26](start_span)[span_26](end_span)
 
+                    // GRAND FINALE: Generate bright neon interconnected path lines layout
                     for (let i = 0; i < priorityTourQueue.length; i++) {
                         for (let j = i + 1; j < Math.min(i + 5, priorityTourQueue.length); j++) {
                             let webLine = L.polyline([
@@ -895,97 +928,61 @@
                                 [priorityTourQueue[j].lat, priorityTourQueue[j].lng]
                             ], {
                                 color: '#00f5d4',
-                                weight: 1.5,
-                                opacity: 0.5,
+                                weight: 2,
+                                opacity: 0.6,
                                 dashArray: '4, 4'
                             }).addTo(map);
                             finalGlobalNetworkLines.push(webLine);
                         }
                     }
 
+                    // Network remains beautifully visible for 2 seconds before clean reset
                     setTimeout(() => {
                         finalGlobalNetworkLines.forEach(line => map.removeLayer(line));
                         finalGlobalNetworkLines = [];
-                        btnElement.innerText = "🎬 Start Virtual Tour";
-                        btnElement.style.opacity = "1";
+                        btnElement.innerText = "🎬 Start Virtual Tour";[span_27](start_span)[span_27](end_span)
+                        btnElement.style.opacity = "1";[span_28](start_span)[span_28](end_span)
                     }, 2000);
 
-                    return;
+                    return;[span_29](start_span)[span_29](end_span)
                 }
 
-                const currentTargetStop = priorityTourQueue[currentStopIndex];
+                const currentTargetStop = priorityTourQueue[currentStopIndex];[span_30](start_span)[span_30](end_span)
                 const startCoords = currentStopIndex === 0 ? [25.3350, 82.9500] : [priorityTourQueue[currentStopIndex - 1].lat, priorityTourQueue[currentStopIndex - 1].lng];
                 const endCoords = [currentTargetStop.lat, currentTargetStop.lng];
 
                 if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); }
 
+                // 3. CLEAN HIGH-PERFORMANCE SOLID NEON INTER-STATION TRACK PATH
                 currentFlightPathLine = L.polyline([startCoords, endCoords], {
-                    color: 'var(--accent-cyan)',
+                    color: '#00f5d4',
                     weight: 3,
-                    dashArray: '8, 8',
-                    opacity: 0.8
+                    opacity: 0.85
                 }).addTo(map);
 
-                if (!activePlaneMarker) {
-                    activePlaneMarker = L.marker(startCoords, { icon: planeIcon }).addTo(map);
-                } else {
-                    activePlaneMarker.setLatLng(startCoords);
-                }
-
-                const dLng = endCoords[1] - startCoords[1];
-                const dLat = endCoords[0] - startCoords[0];
-                const headingAngle = Math.atan2(dLng, dLat) * (180 / Math.PI);
-                
-                setTimeout(() => {
-                    const planeDomNode = document.querySelector('.flight-plane-icon');
-                    if (planeDomNode) {
-                        planeDomNode.style.transform = `rotate(${headingAngle - 45}deg)`;
-                    }
-                }, 50);
-
-                let progressInterval = null;
-                let frameStep = 0;
-                const totalFrames = 40; 
-
-                progressInterval = setInterval(() => {
-                    frameStep++;
-                    if (frameStep <= totalFrames) {
-                        const ratio = frameStep / totalFrames;
-                        const currentLat = startCoords[0] + (endCoords[0] - startCoords[0]) * ratio;
-                        const currentLng = startCoords[1] + (endCoords[1] - startCoords[1]) * ratio;
-                        if (activePlaneMarker) {
-                            activePlaneMarker.setLatLng([currentLat, currentLng]);
-                        }
-                    } else {
-                        clearInterval(progressInterval);
-                    }
-                }, 2200 / totalFrames); 
-
-                map.flyTo(endCoords, currentTargetStop.zoom, {
+                // Smooth 1.5x Camera Panning Flow - Duration 2.2 seconds flat
+                map.flyTo(endCoords, currentTargetStop.zoom, {[span_31](start_span)[span_31](end_span)
                     animate: true,
                     duration: 2.2
-                });
+                });[span_32](start_span)[span_32](end_span)
 
-                map.once('moveend', function() {
-                    if (currentFlightPathLine) { map.removeLayer(currentFlightPathLine); currentFlightPathLine = null; }
-                    if (activePlaneMarker) { map.removeLayer(activePlaneMarker); activePlaneMarker = null; }
+                map.once('moveend', function() {[span_33](start_span)[span_33](end_span)
+                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];[span_34](start_span)[span_34](end_span)
+                    if (activeTargetMarker) {[span_35](start_span)[span_35](end_span)
+                        setTimeout(() => {[span_36](start_span)[span_36](end_span)
+                            activeTargetMarker.openPopup();[span_37](start_span)[span_37](end_span)
+                            currentStopIndex++;[span_38](start_span)[span_38](end_span)
+                            setTimeout(executeNextPriorityStop, 2000);[span_39](start_span)[span_39](end_span)
+                        }, 200);[span_40](start_span)[span_40](end_span)
+                    } else {[span_41](start_span)[span_41](end_span)
+                        currentStopIndex++;[span_42](start_span)[span_42](end_span)
+                        executeNextPriorityStop();[span_43](start_span)[span_43](end_span)
+                    }[span_44](start_span)[span_44](end_span)
+                });[span_45](start_span)[span_45](end_span)
+            }[span_46](start_span)[span_46](end_span)
 
-                    const activeTargetMarker = markerMap[currentTargetStop.lat.toString()];
-                    if (activeTargetMarker) {
-                        setTimeout(() => {
-                            activeTargetMarker.openPopup();
-                            currentStopIndex++;
-                            setTimeout(executeNextPriorityStop, 2000);
-                        }, 200);
-                    } else {
-                        currentStopIndex++;
-                        executeNextPriorityStop();
-                    }
-                });
-            }
-
-            executeNextPriorityStop();
-        });
+            executeNextPriorityStop();[span_47](start_span)[span_47](end_span)
+        });[span_48](start_span)[span_48](end_span)
 
       });
     </script>
