@@ -766,7 +766,18 @@
         });
 
         document.getElementById('start-tour-btn').addEventListener('click', function() {
-            const tourStops = [ { lat: 25.448594, lng: 82.857222, zoom: 15 }, { lat: 25.306571, lng: 82.990765, zoom: 16 }, { lat: 25.312580, lng: 82.988833, zoom: 16 }, { lat: 25.350037, lng: 82.977964, zoom: 16 }, { lat: 25.311693, lng: 83.010303, zoom: 16 } ];
+            const tourStops = [
+                { lat: 25.448594, lng: 82.857222, zoom: 17 },
+                { lat: 25.448627, lng: 82.856050, zoom: 17 },
+                { lat: 25.305376, lng: 82.996097, zoom: 17 },
+                { lat: 25.324775, lng: 82.992768, zoom: 17 },
+                { lat: 25.306122, lng: 83.001422, zoom: 17 },
+                { lat: 25.332612, lng: 82.980415, zoom: 17 },
+                { lat: 25.311693, lng: 83.010303, zoom: 16 },
+                { lat: 25.306571, lng: 82.990765, zoom: 17 },
+                { lat: 25.334185, lng: 82.981844, zoom: 17 },
+                { lat: 25.324712, lng: 82.992566, zoom: 17 }
+            ];
             let currentStop = 0;
             const btnElement = document.getElementById('start-tour-btn');
             btnElement.innerText = "🔄 Tour In Progress..."; btnElement.style.opacity = "0.7"; map.closePopup();
