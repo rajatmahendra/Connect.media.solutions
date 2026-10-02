@@ -384,6 +384,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#revolution">Revolution</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
                     <li><a href="#technology">Technology</a></li>
                     <li><a href="#applications">Applications</a></li>
                     <li><a href="#installation-map-section">Map</a></li>
@@ -442,6 +443,74 @@
             <img src="pic4.jpg" alt="Distribution Grid Map Placement" class="row-banner">
         </div>
     </section>
+
+    <!-- NEW LED CONNECTION & CALCULATION TOOL SECTION -->
+    <section id="calculator" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; background: linear-gradient(145deg, #101726, #090d16); border-radius: 16px; margin: 4rem auto; max-width: 1200px;">
+        <h2 class="section-title">LED Screen & Connection Calculator</h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2.5rem auto 3rem; max-width: 700px;">Apne screen ki sizing daaliye aur instant cabinet count, resolution, aur connection ports calculate kijiye.</p>
+        
+        <div style="max-width: 650px; margin: 0 auto; background: var(--card-bg); padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Screen Width (Meters):</label>
+                <input type="number" id="screenWidth" value="3" step="0.1" style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Screen Height (Meters):</label>
+                <input type="number" id="screenHeight" value="2" step="0.1" style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Cabinet Size (e.g., 0.5 for 500mm):</label>
+                <input type="number" id="cabSize" value="0.5" step="0.1" style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1.8rem;">
+                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0;">Pixel Pitch (e.g., P2.5 -> use 2.5):</label>
+                <input type="number" id="pitch" value="2.5" step="0.1" style="width: 100%; background: #090d16; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; border-radius: 6px; color: white; font-size: 1rem; outline: none;">
+            </div>
+
+            <button onclick="calculateLED()" style="width: 100%; background: linear-gradient(135deg, var(--accent-cyan), #00b4d8); color: #090d16; border: none; padding: 1rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; box-shadow: var(--neon-glow);">Generate Connection Setup</button>
+
+            <div id="output" style="margin-top: 20px; background: #090d16; padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: none; color: #e2e8f0; font-size: 0.95rem; line-height: 1.7;"></div>
+        </div>
+    </section>
+
+    <script>
+    function calculateLED() {
+        let w = parseFloat(document.getElementById('screenWidth').value);
+        let h = parseFloat(document.getElementById('screenHeight').value);
+        let cab = parseFloat(document.getElementById('cabSize').value);
+        let pitch = parseFloat(document.getElementById('pitch').value);
+
+        if(!w || !h || !cab || !pitch) {
+            alert('Kripya sabhi fields mein sahi values bharein.');
+            return;
+        }
+
+        let cols = Math.ceil(w / cab);
+        let rows = Math.ceil(h / cab);
+        let totalCabinets = cols * rows;
+
+        let cabPixelW = (cab * 1000) / pitch;
+        let totalResW = Math.round(cols * cabPixelW);
+        let totalResH = Math.round(rows * cabPixelW);
+        let estimatedPorts = Math.ceil((totalResW * totalResH) / 650000);
+
+        let outputHTML = `
+            <b style="color: var(--accent-cyan); font-size: 1.1rem;">📊 Calculated Specifications:</b><br><br>
+            * Total Cabinets Required: <b style="color: white;">${cols} (Cols) × ${rows} (Rows) = ${totalCabinets} Cabinets</b><br>
+            * Total Resolution: <b style="color: white;">${totalResW}px × ${totalResH}px</b><br>
+            * Recommended Ethernet Ports: <b style="color: white;">${estimatedPorts} Port(s) (NovaStar standard load)</b><br><br>
+            <span style="color: #25D366; font-weight: bold;">✔ Connection layout generated successfully!</span>
+        `;
+
+        let outDiv = document.getElementById('output');
+        outDiv.style.display = 'block';
+        outDiv.innerHTML = outputHTML;
+    }
+    </script>
+    <!-- END OF TOOL SECTION -->
 
     <section id="installation-map-section" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; display: block; clear: both; background-color: var(--primary-bg);">
         <h2 class="section-title">Our Varanasi Installation Footprint</h2>
